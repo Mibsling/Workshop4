@@ -14,7 +14,7 @@ namespace BusinessLayer
         public string PkgEndDate { get; set; }
         public string PkgDesc { get; set; }
         public string PkgBasePrice { get; set; }
-        public string PkgAgencyCommision { get; set; }
+        public string PkgAgencyCommission { get; set; }
 
     }
 }

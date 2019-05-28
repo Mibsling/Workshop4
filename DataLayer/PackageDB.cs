@@ -8,31 +8,32 @@ using BusinessLayer;
 
 namespace DataLayer
 {
-    public static class PackageDB
+    public class PackageDB
     {
-        public static Package GetPackage(int ID)
+        public static List<Package> GetPackages()
         {
-            SqlConnection connection = TravelExpertsDB.GetConnection(); ;
-            Package s = new Package();
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            List<Package> results = new List<Package>();
             try
             {
-
-                string sql = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommision FROM Packages WHERE PackageId = " + ID;
+                string sql = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission FROM Packages";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
 
                 {
+                    Package s = new Package();
+                    
                     s.PackageId = Convert.ToInt32(reader["PackageId"]);
                     s.PkgName = reader["PkgName"].ToString();
-                    s.PkgStartDate = reader["Name"].ToString();
-                    s.PkgEndDate = reader["Name"].ToString();
+                    s.PkgStartDate = reader["PkgStartDate"].ToString();
+                    s.PkgEndDate = reader["PkgEndDate"].ToString();
                     s.PkgDesc = reader["PkgDesc"].ToString();
-                    s.PkgBasePrice = reader["Name"].ToString();
-                    s.PkgAgencyCommision = reader["Name"].ToString();
+                    s.PkgBasePrice = reader["PkgBasePrice"].ToString();
+                    s.PkgAgencyCommission = reader["PkgAgencyCommission"].ToString();
 
 
-                    //results.Add(s);
+                    results.Add(s);
                 }
             }
             catch
@@ -45,16 +46,16 @@ namespace DataLayer
             }
 
 
-            return s;
+            return results;
         }
 
-        public static void AddCustomer(string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommision)
+        public static void AddCustomer(string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommission)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             try
             {
 
-                string sql = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommision) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommision)";
+                string sql = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@PkgName", PkgName);
@@ -62,7 +63,7 @@ namespace DataLayer
                 command.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
                 command.Parameters.AddWithValue("@PkgDesc", PkgDesc);
                 command.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
-                command.Parameters.AddWithValue("@PkgAgencyCommision", PkgAgencyCommision);
+                command.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
 
                 command.ExecuteNonQuery();
 
