@@ -16,5 +16,10 @@ namespace Workshop4
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dgvPackages.DataSource = DataLayer.PackageDB.GetPackages();
+        }
     }
 }

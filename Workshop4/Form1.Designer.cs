@@ -34,7 +34,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -52,6 +55,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dgvPackages);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -85,7 +89,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(697, 367);
+            this.tabPage4.Size = new System.Drawing.Size(697, 390);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Suppliers";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -95,10 +99,18 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(697, 367);
+            this.tabPage5.Size = new System.Drawing.Size(697, 390);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Packages_Products_Su";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvPackages
+            // 
+            this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackages.Location = new System.Drawing.Point(22, 26);
+            this.dgvPackages.Name = "dgvPackages";
+            this.dgvPackages.Size = new System.Drawing.Size(609, 336);
+            this.dgvPackages.TabIndex = 0;
             // 
             // Form1
             // 
@@ -108,7 +120,10 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,6 +136,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.DataGridView dgvPackages;
     }
 }
 
