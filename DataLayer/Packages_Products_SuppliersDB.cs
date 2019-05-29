@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLayer;
 
 namespace DataLayer
 {
-    public class PackageDB
+    class Packages_Products_SuppliersDB
     {
-        public static List<Package> GetPackages()
+        /*
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             List<Package> results = new List<Package>();
@@ -48,35 +46,6 @@ namespace DataLayer
 
             return results;
         }
-
-        public static void AddCustomer(string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommission)
-        {
-            SqlConnection connection = TravelExpertsDB.GetConnection();
-            try
-            {
-
-                string sql = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
-
-                SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@PkgName", PkgName);
-                command.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
-                command.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
-                command.Parameters.AddWithValue("@PkgDesc", PkgDesc);
-                command.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
-                command.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
-
-                command.ExecuteNonQuery();
-
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
+        */
     }
 }
