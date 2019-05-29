@@ -77,10 +77,26 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
             txtBasePrice.Text = "";
             txtPkgDesc.Text = "";
             txtAgencyCommission.Text = "";
-
+            lboxAddedProducts.Items.Clear();
             dtpPkgStartDate.ResetText();
             dtpPkgEndDate.ResetText();
 
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            lboxAddedProducts.Items.Add("test");
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var selectedItems = lboxAddedProducts.SelectedItems;
+
+            if (lboxAddedProducts.SelectedIndex != -1)
+            {
+                for (int i = selectedItems.Count - 1; i >= 0; i--)
+                    lboxAddedProducts.Items.Remove(selectedItems[i]);
+            }
         }
     }
 }

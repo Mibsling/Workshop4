@@ -43,7 +43,7 @@
             this.txtPkgName = new System.Windows.Forms.TextBox();
             this.cbProducts = new System.Windows.Forms.ComboBox();
             this.cbSuppliers = new System.Windows.Forms.ComboBox();
-            this.lbAddedProducts = new System.Windows.Forms.ListBox();
+            this.lboxAddedProducts = new System.Windows.Forms.ListBox();
             this.lblAddedProducts = new System.Windows.Forms.Label();
             this.lblAgencyCommission = new System.Windows.Forms.Label();
             this.lblBasePrice = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -153,6 +153,7 @@
             this.btnAddProduct.TabIndex = 18;
             this.btnAddProduct.Text = "Add to list";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // dtpPkgEndDate
             // 
@@ -213,13 +214,14 @@
             this.cbSuppliers.Size = new System.Drawing.Size(121, 21);
             this.cbSuppliers.TabIndex = 10;
             // 
-            // lbAddedProducts
+            // lboxAddedProducts
             // 
-            this.lbAddedProducts.FormattingEnabled = true;
-            this.lbAddedProducts.Location = new System.Drawing.Point(313, 37);
-            this.lbAddedProducts.Name = "lbAddedProducts";
-            this.lbAddedProducts.Size = new System.Drawing.Size(266, 69);
-            this.lbAddedProducts.TabIndex = 9;
+            this.lboxAddedProducts.FormattingEnabled = true;
+            this.lboxAddedProducts.Location = new System.Drawing.Point(313, 37);
+            this.lboxAddedProducts.Name = "lboxAddedProducts";
+            this.lboxAddedProducts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lboxAddedProducts.Size = new System.Drawing.Size(266, 69);
+            this.lboxAddedProducts.TabIndex = 9;
             // 
             // lblAddedProducts
             // 
@@ -353,8 +355,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.lbAddedProducts);
+            this.groupBox1.Controls.Add(this.btnRemoveProduct);
+            this.groupBox1.Controls.Add(this.lboxAddedProducts);
             this.groupBox1.Controls.Add(this.lblSuppliers);
             this.groupBox1.Controls.Add(this.lblProducts);
             this.groupBox1.Controls.Add(this.lblAddedProducts);
@@ -368,14 +370,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Package Products";
             // 
-            // button1
+            // btnRemoveProduct
             // 
-            this.button1.Location = new System.Drawing.Point(191, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Remove from list";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Location = new System.Drawing.Point(191, 78);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(110, 23);
+            this.btnRemoveProduct.TabIndex = 19;
+            this.btnRemoveProduct.Text = "Remove from list";
+            this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -417,7 +420,7 @@
         private System.Windows.Forms.TextBox txtPkgName;
         private System.Windows.Forms.ComboBox cbProducts;
         private System.Windows.Forms.ComboBox cbSuppliers;
-        private System.Windows.Forms.ListBox lbAddedProducts;
+        private System.Windows.Forms.ListBox lboxAddedProducts;
         private System.Windows.Forms.Label lblAddedProducts;
         private System.Windows.Forms.Label lblAgencyCommission;
         private System.Windows.Forms.Label lblBasePrice;
@@ -430,7 +433,7 @@
         private System.Windows.Forms.Label lblPkgId;
         private System.Windows.Forms.TextBox txtPkgId;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoveProduct;
     }
 }
 
