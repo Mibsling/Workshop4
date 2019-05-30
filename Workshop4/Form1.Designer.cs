@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.BackgroundPanel = new System.Windows.Forms.Panel();
             this.btnClearPackage = new System.Windows.Forms.Button();
             this.btnSavePackage = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PackagesPanel = new System.Windows.Forms.Panel();
+            this.cBoxPackages = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPkgId = new System.Windows.Forms.Label();
             this.txtAgencyCommission = new System.Windows.Forms.TextBox();
@@ -61,19 +62,18 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.NavPanel = new System.Windows.Forms.Panel();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
-            this.cBoxPackages = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.BackgroundPanel.SuspendLayout();
+            this.PackagesPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.NavPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -89,16 +89,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
+            // BackgroundPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Controls.Add(this.btnClearPackage);
-            this.panel1.Controls.Add(this.btnSavePackage);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(152, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(676, 548);
-            this.panel1.TabIndex = 1;
+            this.BackgroundPanel.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackgroundPanel.Controls.Add(this.btnClearPackage);
+            this.BackgroundPanel.Controls.Add(this.btnSavePackage);
+            this.BackgroundPanel.Controls.Add(this.PackagesPanel);
+            this.BackgroundPanel.Location = new System.Drawing.Point(152, 0);
+            this.BackgroundPanel.Name = "BackgroundPanel";
+            this.BackgroundPanel.Size = new System.Drawing.Size(676, 548);
+            this.BackgroundPanel.TabIndex = 1;
             // 
             // btnClearPackage
             // 
@@ -126,33 +126,43 @@
             this.btnSavePackage.UseVisualStyleBackColor = false;
             this.btnSavePackage.Click += new System.EventHandler(this.btnSavePackage_Click);
             // 
-            // panel3
+            // PackagesPanel
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.cBoxPackages);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.lblPkgId);
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.txtAgencyCommission);
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.lblAgencyCommission);
-            this.panel3.Controls.Add(this.txtPkgId);
-            this.panel3.Controls.Add(this.txtBasePrice);
-            this.panel3.Controls.Add(this.lblPkgName);
-            this.panel3.Controls.Add(this.lblBasePrice);
-            this.panel3.Controls.Add(this.lblPkgDesc);
-            this.panel3.Controls.Add(this.dtpPkgEndDate);
-            this.panel3.Controls.Add(this.txtPkgDesc);
-            this.panel3.Controls.Add(this.txtPkgName);
-            this.panel3.Controls.Add(this.lblStartDate);
-            this.panel3.Controls.Add(this.dtpPkgStartDate);
-            this.panel3.Controls.Add(this.lblEndDate);
-            this.panel3.Location = new System.Drawing.Point(3, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(642, 465);
-            this.panel3.TabIndex = 24;
+            this.PackagesPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.PackagesPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PackagesPanel.BackgroundImage")));
+            this.PackagesPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PackagesPanel.Controls.Add(this.cBoxPackages);
+            this.PackagesPanel.Controls.Add(this.label1);
+            this.PackagesPanel.Controls.Add(this.lblPkgId);
+            this.PackagesPanel.Controls.Add(this.pictureBox1);
+            this.PackagesPanel.Controls.Add(this.txtAgencyCommission);
+            this.PackagesPanel.Controls.Add(this.groupBox1);
+            this.PackagesPanel.Controls.Add(this.lblAgencyCommission);
+            this.PackagesPanel.Controls.Add(this.txtPkgId);
+            this.PackagesPanel.Controls.Add(this.txtBasePrice);
+            this.PackagesPanel.Controls.Add(this.lblPkgName);
+            this.PackagesPanel.Controls.Add(this.lblBasePrice);
+            this.PackagesPanel.Controls.Add(this.lblPkgDesc);
+            this.PackagesPanel.Controls.Add(this.dtpPkgEndDate);
+            this.PackagesPanel.Controls.Add(this.txtPkgDesc);
+            this.PackagesPanel.Controls.Add(this.txtPkgName);
+            this.PackagesPanel.Controls.Add(this.lblStartDate);
+            this.PackagesPanel.Controls.Add(this.dtpPkgStartDate);
+            this.PackagesPanel.Controls.Add(this.lblEndDate);
+            this.PackagesPanel.Location = new System.Drawing.Point(3, 40);
+            this.PackagesPanel.Name = "PackagesPanel";
+            this.PackagesPanel.Size = new System.Drawing.Size(642, 465);
+            this.PackagesPanel.TabIndex = 24;
+            // 
+            // cBoxPackages
+            // 
+            this.cBoxPackages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxPackages.FormattingEnabled = true;
+            this.cBoxPackages.Location = new System.Drawing.Point(348, 169);
+            this.cBoxPackages.Name = "cBoxPackages";
+            this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
+            this.cBoxPackages.TabIndex = 25;
             // 
             // label1
             // 
@@ -440,19 +450,19 @@
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
-            // panel2
+            // NavPanel
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Controls.Add(this.btnSuppliers);
-            this.panel2.Controls.Add(this.btnProducts);
-            this.panel2.Controls.Add(this.btnPackages);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Location = new System.Drawing.Point(-2, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(160, 548);
-            this.panel2.TabIndex = 5;
+            this.NavPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NavPanel.BackgroundImage")));
+            this.NavPanel.Controls.Add(this.btnSuppliers);
+            this.NavPanel.Controls.Add(this.btnProducts);
+            this.NavPanel.Controls.Add(this.btnPackages);
+            this.NavPanel.Controls.Add(this.pictureBox2);
+            this.NavPanel.Controls.Add(this.pictureBox3);
+            this.NavPanel.Controls.Add(this.pictureBox4);
+            this.NavPanel.Location = new System.Drawing.Point(-2, 0);
+            this.NavPanel.Name = "NavPanel";
+            this.NavPanel.Size = new System.Drawing.Size(160, 548);
+            this.NavPanel.TabIndex = 5;
             // 
             // btnSuppliers
             // 
@@ -487,48 +497,39 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
-            // cBoxPackages
-            // 
-            this.cBoxPackages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxPackages.FormattingEnabled = true;
-            this.cBoxPackages.Location = new System.Drawing.Point(16, 6);
-            this.cBoxPackages.Name = "cBoxPackages";
-            this.cBoxPackages.Size = new System.Drawing.Size(205, 21);
-            this.cBoxPackages.TabIndex = 25;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 548);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.NavPanel);
+            this.Controls.Add(this.BackgroundPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.BackgroundPanel.ResumeLayout(false);
+            this.PackagesPanel.ResumeLayout(false);
+            this.PackagesPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.NavPanel.ResumeLayout(false);
+            this.NavPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel BackgroundPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel NavPanel;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Button btnPackages;
@@ -538,7 +539,7 @@
         private System.Windows.Forms.Label lblAgencyCommission;
         private System.Windows.Forms.Label lblBasePrice;
         private System.Windows.Forms.Label lblPkgDesc;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PackagesPanel;
         private System.Windows.Forms.Label lblPkgId;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRemoveProduct;
