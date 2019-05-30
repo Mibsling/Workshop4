@@ -58,17 +58,11 @@ select * from Packages_Products_Suppliers;
 select * from products;
 
 SELECT * FROM Products_Suppliers WHERE ProductId = 6;
+
+
+            
              */
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSavePackage_Click(object sender, EventArgs e)
-        {
-
+            cBoxPackages.Items.Add("test");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,12 +77,13 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
 
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private void btnAddProduct_Click_1(object sender, EventArgs e)
         {
+
             lboxAddedProducts.Items.Add("test");
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
             var selectedItems = lboxAddedProducts.SelectedItems;
 
@@ -99,14 +94,20 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
             }
         }
 
-        private void txtPkgName_TextChanged(object sender, EventArgs e)
+        private void btnClearPackage_Click(object sender, EventArgs e)
         {
-
+            txtPkgName.Text = "";
+            txtBasePrice.Text = "";
+            txtPkgDesc.Text = "";
+            txtAgencyCommission.Text = "";
+            lboxAddedProducts.Items.Clear();
+            dtpPkgStartDate.ResetText();
+            dtpPkgEndDate.ResetText();
         }
 
-        private void txtAgencyCommission_TextChanged(object sender, EventArgs e)
+        private void btnSavePackage_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(dtpPkgStartDate.Value.Date.ToString());
         }
     }
 }
