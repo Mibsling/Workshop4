@@ -62,6 +62,7 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
 
             
              */
+            dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
             cBoxPackages.Items.Add("test");
         }
 
@@ -108,6 +109,11 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
         private void btnSavePackage_Click(object sender, EventArgs e)
         {
             MessageBox.Show(dtpPkgStartDate.Value.Date.ToString());
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
