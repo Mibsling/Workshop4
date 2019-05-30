@@ -98,5 +98,15 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
                     lboxAddedProducts.Items.Remove(selectedItems[i]);
             }
         }
+
+        private void txtPkgName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAgencyCommission_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
