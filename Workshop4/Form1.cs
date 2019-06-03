@@ -33,9 +33,9 @@ where Packages.PackageId = 1;
              
             
              */
-            dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
+            //dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
 
-            var packages = DataLayer.PackageDB.GetPackages();
+            var packages = DataLayer.PackageDB.GetPackages(); 
             cBoxPackages.DataSource = packages;
             cBoxPackages.DisplayMember = "PkgName";
             txtPkgId.DataBindings.Add("Text", packages, "PackageId");
@@ -114,5 +114,24 @@ where Packages.PackageId = 1;
             }
         }
 
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
+        }
     }
 }
