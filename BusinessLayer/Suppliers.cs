@@ -8,7 +8,7 @@ namespace BusinessLayer
 {
    public class Suppliers
     {
-        public int SupplierID { get; set; }
+        public int SupplierId { get; set; }
         public string SupName { get; set; }
     }
 }

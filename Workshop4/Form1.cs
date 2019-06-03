@@ -36,6 +36,26 @@ where Packages.PackageId = 1;
             //dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
 
             var packages = DataLayer.PackageDB.GetPackages(); 
+            var products = DataLayer.ProductsDB.GetProducts();
+            var suppliers = DataLayer.SuppliersDB.GetSuppliers();
+            BoxProdID.DataSource = products;
+            BoxProdID.DisplayMember = "ProductId";
+            txtProdName.DataBindings.Add("Text", products, "ProdName");
+
+            BoxSupId.DataSource = suppliers;
+            BoxSupId.DisplayMember = "SupplierId";
+
+            // Get max SupplierID
+            int maxSupId = 0;
+            foreach (var s in suppliers)
+            {
+                if (s.SupplierId > maxSupId)
+                {
+                    maxSupId = s.SupplierId;
+                }
+            }
+
+            txtSupName.DataBindings.Add("Text", suppliers, "SupName");
             cBoxPackages.DataSource = packages;
             cBoxPackages.DisplayMember = "PkgName";
             txtPkgId.DataBindings.Add("Text", packages, "PackageId");
@@ -45,7 +65,8 @@ where Packages.PackageId = 1;
             dtpPkgEndDate.DataBindings.Add("Value", packages, "PkgEndDate");
             txtBasePrice.DataBindings.Add("Text", packages, "PkgBasePrice");
             txtAgencyCommission.DataBindings.Add("Text", packages, "PkgAgencyCommission");
-            //cbSuppliers.DataSource = DataLayer.SuppliersDB.
+            cbSuppliers.DataSource = DataLayer.SuppliersDB.GetSuppliers();
+            cbSuppliers.DisplayMember = "SupName";
             cbProducts.DataSource = DataLayer.ProductsDB.GetProducts();
             cbProducts.DisplayMember = "ProdName";
 
@@ -119,19 +140,67 @@ where Packages.PackageId = 1;
             this.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnNew_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataLayer.ProductsDB.AddProducts(txtProdName.Text);
+                MessageBox.Show("Product successfully added.");
+            }
+            catch
+            {
+
+            }
+            txtProdName.Text = "";
+            BoxProdID.Text = "";
 
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataLayer.ProductsDB.EditProducts(txtProdName.Text, BoxProdID.Text);
+                MessageBox.Show("Product successfully edited.");
+            }
+            catch
+            {
 
+            }
+            txtProdName.Text = "";
+            BoxProdID.Text = "";
         }
 
-        private void btnView_Click(object sender, EventArgs e)
+        private void btnNewSup_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
+            try
+            {
+                DataLayer.SuppliersDB.AddSuppliers(++DataLayer.SuppliersDB.maxSupplierId, txtSupName.Text);
+                MessageBox.Show("Supplier successfully added.");
+            }
+            catch
+            {
+
+            }
+            txtSupName.Text = "";
+            BoxSupId.Text = "";
+            
+        }
+
+        private void btnEditSup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataLayer.SuppliersDB.EditSuppliers(BoxSupId.Text, txtSupName.Text);
+                MessageBox.Show("Supplier successfully edited.");
+            }
+            catch
+            {
+
+            }
+            
+            txtSupName.Text = "";
+            BoxSupId.Text = "";
         }
     }
 }

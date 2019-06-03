@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BackgroundPanel = new System.Windows.Forms.Panel();
+            this.btnclose = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,7 +66,12 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dtpPkgStartDate = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BoxProdID = new System.Windows.Forms.ComboBox();
+            this.btnEditProduct = new System.Windows.Forms.Button();
+            this.btnNewProduct = new System.Windows.Forms.Button();
+            this.txtProdName = new System.Windows.Forms.TextBox();
+            this.lblProdName = new System.Windows.Forms.Label();
+            this.lblProdID = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -80,14 +86,12 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
-            this.lblProdID = new System.Windows.Forms.Label();
-            this.lblProdName = new System.Windows.Forms.Label();
-            this.txtProdId = new System.Windows.Forms.TextBox();
-            this.txtProdName = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
-            this.btnclose = new System.Windows.Forms.Button();
+            this.lblSupplierId = new System.Windows.Forms.Label();
+            this.lblSupName = new System.Windows.Forms.Label();
+            this.txtSupName = new System.Windows.Forms.TextBox();
+            this.btnNewSup = new System.Windows.Forms.Button();
+            this.btnEditSup = new System.Windows.Forms.Button();
+            this.BoxSupId = new System.Windows.Forms.ComboBox();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -97,7 +101,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -118,6 +121,18 @@
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(676, 548);
             this.BackgroundPanel.TabIndex = 1;
+            // 
+            // btnclose
+            // 
+            this.btnclose.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.Location = new System.Drawing.Point(598, 0);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(75, 30);
+            this.btnclose.TabIndex = 28;
+            this.btnclose.Text = "Close";
+            this.btnclose.UseVisualStyleBackColor = false;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
             // tabControl1
             // 
@@ -504,14 +519,12 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnView);
-            this.tabPage3.Controls.Add(this.btnEdit);
-            this.tabPage3.Controls.Add(this.btnAdd);
+            this.tabPage3.Controls.Add(this.BoxProdID);
+            this.tabPage3.Controls.Add(this.btnEditProduct);
+            this.tabPage3.Controls.Add(this.btnNewProduct);
             this.tabPage3.Controls.Add(this.txtProdName);
-            this.tabPage3.Controls.Add(this.txtProdId);
             this.tabPage3.Controls.Add(this.lblProdName);
             this.tabPage3.Controls.Add(this.lblProdID);
-            this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.pictureBox5);
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
@@ -521,13 +534,64 @@
             this.tabPage3.Text = "Products";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // BoxProdID
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 189);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(374, 251);
-            this.dataGridView1.TabIndex = 3;
+            this.BoxProdID.FormattingEnabled = true;
+            this.BoxProdID.Location = new System.Drawing.Point(203, 114);
+            this.BoxProdID.Name = "BoxProdID";
+            this.BoxProdID.Size = new System.Drawing.Size(121, 32);
+            this.BoxProdID.TabIndex = 12;
+            // 
+            // btnEditProduct
+            // 
+            this.btnEditProduct.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditProduct.Location = new System.Drawing.Point(360, 237);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(75, 34);
+            this.btnEditProduct.TabIndex = 10;
+            this.btnEditProduct.Text = "Edit";
+            this.btnEditProduct.UseVisualStyleBackColor = false;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnNewProduct
+            // 
+            this.btnNewProduct.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProduct.Location = new System.Drawing.Point(224, 237);
+            this.btnNewProduct.Name = "btnNewProduct";
+            this.btnNewProduct.Size = new System.Drawing.Size(81, 34);
+            this.btnNewProduct.TabIndex = 9;
+            this.btnNewProduct.Text = "New";
+            this.btnNewProduct.UseVisualStyleBackColor = false;
+            this.btnNewProduct.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // txtProdName
+            // 
+            this.txtProdName.Location = new System.Drawing.Point(203, 180);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(303, 29);
+            this.txtProdName.TabIndex = 8;
+            // 
+            // lblProdName
+            // 
+            this.lblProdName.AutoSize = true;
+            this.lblProdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdName.Location = new System.Drawing.Point(86, 171);
+            this.lblProdName.Name = "lblProdName";
+            this.lblProdName.Size = new System.Drawing.Size(116, 18);
+            this.lblProdName.TabIndex = 6;
+            this.lblProdName.Text = "Product Name";
+            // 
+            // lblProdID
+            // 
+            this.lblProdID.AutoSize = true;
+            this.lblProdID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdID.Location = new System.Drawing.Point(86, 128);
+            this.lblProdID.Name = "lblProdID";
+            this.lblProdID.Size = new System.Drawing.Size(88, 18);
+            this.lblProdID.TabIndex = 5;
+            this.lblProdID.Text = "Product ID";
             // 
             // pictureBox5
             // 
@@ -563,6 +627,12 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.BoxSupId);
+            this.tabPage4.Controls.Add(this.btnEditSup);
+            this.tabPage4.Controls.Add(this.btnNewSup);
+            this.tabPage4.Controls.Add(this.txtSupName);
+            this.tabPage4.Controls.Add(this.lblSupName);
+            this.tabPage4.Controls.Add(this.lblSupplierId);
             this.tabPage4.Controls.Add(this.pictureBox6);
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
@@ -686,82 +756,60 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
-            // lblProdID
+            // lblSupplierId
             // 
-            this.lblProdID.AutoSize = true;
-            this.lblProdID.Location = new System.Drawing.Point(26, 53);
-            this.lblProdID.Name = "lblProdID";
-            this.lblProdID.Size = new System.Drawing.Size(107, 24);
-            this.lblProdID.TabIndex = 5;
-            this.lblProdID.Text = "Product ID";
+            this.lblSupplierId.AutoSize = true;
+            this.lblSupplierId.Location = new System.Drawing.Point(72, 129);
+            this.lblSupplierId.Name = "lblSupplierId";
+            this.lblSupplierId.Size = new System.Drawing.Size(111, 24);
+            this.lblSupplierId.TabIndex = 4;
+            this.lblSupplierId.Text = "Supplier Id";
             // 
-            // lblProdName
+            // lblSupName
             // 
-            this.lblProdName.AutoSize = true;
-            this.lblProdName.Location = new System.Drawing.Point(26, 89);
-            this.lblProdName.Name = "lblProdName";
-            this.lblProdName.Size = new System.Drawing.Size(143, 24);
-            this.lblProdName.TabIndex = 6;
-            this.lblProdName.Text = "Product Name";
+            this.lblSupName.AutoSize = true;
+            this.lblSupName.Location = new System.Drawing.Point(72, 170);
+            this.lblSupName.Name = "lblSupName";
+            this.lblSupName.Size = new System.Drawing.Size(149, 24);
+            this.lblSupName.TabIndex = 5;
+            this.lblSupName.Text = "Supplier Name";
             // 
-            // txtProdId
+            // txtSupName
             // 
-            this.txtProdId.Location = new System.Drawing.Point(175, 48);
-            this.txtProdId.Name = "txtProdId";
-            this.txtProdId.Size = new System.Drawing.Size(116, 29);
-            this.txtProdId.TabIndex = 7;
+            this.txtSupName.Location = new System.Drawing.Point(243, 165);
+            this.txtSupName.Name = "txtSupName";
+            this.txtSupName.Size = new System.Drawing.Size(100, 29);
+            this.txtSupName.TabIndex = 7;
             // 
-            // txtProdName
+            // btnNewSup
             // 
-            this.txtProdName.Location = new System.Drawing.Point(175, 84);
-            this.txtProdName.Name = "txtProdName";
-            this.txtProdName.Size = new System.Drawing.Size(303, 29);
-            this.txtProdName.TabIndex = 8;
+            this.btnNewSup.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewSup.Location = new System.Drawing.Point(210, 220);
+            this.btnNewSup.Name = "btnNewSup";
+            this.btnNewSup.Size = new System.Drawing.Size(75, 39);
+            this.btnNewSup.TabIndex = 8;
+            this.btnNewSup.Text = "New";
+            this.btnNewSup.UseVisualStyleBackColor = false;
+            this.btnNewSup.Click += new System.EventHandler(this.btnNewSup_Click);
             // 
-            // btnAdd
+            // btnEditSup
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAdd.Location = new System.Drawing.Point(124, 129);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 46);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnEditSup.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEditSup.Location = new System.Drawing.Point(301, 220);
+            this.btnEditSup.Name = "btnEditSup";
+            this.btnEditSup.Size = new System.Drawing.Size(75, 39);
+            this.btnEditSup.TabIndex = 9;
+            this.btnEditSup.Text = "Edit";
+            this.btnEditSup.UseVisualStyleBackColor = false;
+            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
             // 
-            // btnEdit
+            // BoxSupId
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEdit.Location = new System.Drawing.Point(216, 129);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 46);
-            this.btnEdit.TabIndex = 10;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnView
-            // 
-            this.btnView.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnView.Location = new System.Drawing.Point(308, 129);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(161, 46);
-            this.btnView.TabIndex = 11;
-            this.btnView.Text = "View Products";
-            this.btnView.UseVisualStyleBackColor = false;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnclose
-            // 
-            this.btnclose.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclose.Location = new System.Drawing.Point(598, 0);
-            this.btnclose.Name = "btnclose";
-            this.btnclose.Size = new System.Drawing.Size(75, 30);
-            this.btnclose.TabIndex = 28;
-            this.btnclose.Text = "Close";
-            this.btnclose.UseVisualStyleBackColor = false;
-            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
+            this.BoxSupId.FormattingEnabled = true;
+            this.BoxSupId.Location = new System.Drawing.Point(243, 121);
+            this.BoxSupId.Name = "BoxSupId";
+            this.BoxSupId.Size = new System.Drawing.Size(121, 32);
+            this.BoxSupId.TabIndex = 10;
             // 
             // Form1
             // 
@@ -788,7 +836,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -857,15 +904,19 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtProdName;
-        private System.Windows.Forms.TextBox txtProdId;
+        private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label lblProdName;
         private System.Windows.Forms.Label lblProdID;
         private System.Windows.Forms.Button btnclose;
+        private System.Windows.Forms.ComboBox BoxProdID;
+        private System.Windows.Forms.TextBox txtProdName;
+        private System.Windows.Forms.ComboBox BoxSupId;
+        private System.Windows.Forms.Button btnEditSup;
+        private System.Windows.Forms.Button btnNewSup;
+        private System.Windows.Forms.TextBox txtSupName;
+        private System.Windows.Forms.Label lblSupName;
+        private System.Windows.Forms.Label lblSupplierId;
     }
 }
 

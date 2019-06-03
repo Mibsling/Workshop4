@@ -60,5 +60,30 @@ namespace DataLayer
                 connection.Close();
             }
         }
+
+        public static void EditProducts(string ProdName, string ProdID)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            try
+            {
+                string sql = "UPDATE Products SET ProdName = (@ProdName) where ProductId = @ProdID";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@ProdName", ProdName);
+                command.Parameters.AddWithValue("@ProdID", ProdID);
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+        }
+
+        }
     }
-}
+
