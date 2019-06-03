@@ -80,7 +80,14 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.lblProdID = new System.Windows.Forms.Label();
+            this.lblProdName = new System.Windows.Forms.Label();
+            this.txtProdId = new System.Windows.Forms.TextBox();
+            this.txtProdName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnclose = new System.Windows.Forms.Button();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,12 +107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.NavPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // BackgroundPanel
             // 
             this.BackgroundPanel.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackgroundPanel.Controls.Add(this.btnclose);
             this.BackgroundPanel.Controls.Add(this.tabControl1);
             this.BackgroundPanel.Location = new System.Drawing.Point(152, 0);
             this.BackgroundPanel.Name = "BackgroundPanel";
@@ -497,6 +504,13 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnView);
+            this.tabPage3.Controls.Add(this.btnEdit);
+            this.tabPage3.Controls.Add(this.btnAdd);
+            this.tabPage3.Controls.Add(this.txtProdName);
+            this.tabPage3.Controls.Add(this.txtProdId);
+            this.tabPage3.Controls.Add(this.lblProdName);
+            this.tabPage3.Controls.Add(this.lblProdID);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.pictureBox5);
             this.tabPage3.Controls.Add(this.panel3);
@@ -510,9 +524,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(62, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 189);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(403, 324);
+            this.dataGridView1.Size = new System.Drawing.Size(374, 251);
             this.dataGridView1.TabIndex = 3;
             // 
             // pictureBox5
@@ -549,7 +563,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Controls.Add(this.pictureBox6);
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
@@ -673,13 +686,82 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // lblProdID
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(5, 37);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(389, 423);
-            this.dataGridView2.TabIndex = 4;
+            this.lblProdID.AutoSize = true;
+            this.lblProdID.Location = new System.Drawing.Point(26, 53);
+            this.lblProdID.Name = "lblProdID";
+            this.lblProdID.Size = new System.Drawing.Size(107, 24);
+            this.lblProdID.TabIndex = 5;
+            this.lblProdID.Text = "Product ID";
+            // 
+            // lblProdName
+            // 
+            this.lblProdName.AutoSize = true;
+            this.lblProdName.Location = new System.Drawing.Point(26, 89);
+            this.lblProdName.Name = "lblProdName";
+            this.lblProdName.Size = new System.Drawing.Size(143, 24);
+            this.lblProdName.TabIndex = 6;
+            this.lblProdName.Text = "Product Name";
+            // 
+            // txtProdId
+            // 
+            this.txtProdId.Location = new System.Drawing.Point(175, 48);
+            this.txtProdId.Name = "txtProdId";
+            this.txtProdId.Size = new System.Drawing.Size(116, 29);
+            this.txtProdId.TabIndex = 7;
+            // 
+            // txtProdName
+            // 
+            this.txtProdName.Location = new System.Drawing.Point(175, 84);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(303, 29);
+            this.txtProdName.TabIndex = 8;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAdd.Location = new System.Drawing.Point(124, 129);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 46);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEdit.Location = new System.Drawing.Point(216, 129);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 46);
+            this.btnEdit.TabIndex = 10;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnView.Location = new System.Drawing.Point(308, 129);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(161, 46);
+            this.btnView.TabIndex = 11;
+            this.btnView.Text = "View Products";
+            this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnclose
+            // 
+            this.btnclose.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.Location = new System.Drawing.Point(598, 0);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(75, 30);
+            this.btnclose.TabIndex = 28;
+            this.btnclose.Text = "Close";
+            this.btnclose.UseVisualStyleBackColor = false;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
             // Form1
             // 
@@ -720,7 +802,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.NavPanel.ResumeLayout(false);
             this.NavPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -777,7 +858,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtProdName;
+        private System.Windows.Forms.TextBox txtProdId;
+        private System.Windows.Forms.Label lblProdName;
+        private System.Windows.Forms.Label lblProdID;
+        private System.Windows.Forms.Button btnclose;
     }
 }
 
