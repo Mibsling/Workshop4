@@ -62,7 +62,7 @@ namespace DataLayer
             }
             catch
             {
-
+                //MessageBox.Show();
             }
             finally
             {
@@ -76,7 +76,6 @@ namespace DataLayer
             try
             {
                 string sql = "UPDATE Suppliers SET SupName = (@SupName) where SupplierId = @SupplierId";
-                //UPDATE Suppliers SET SupName = ('test') where SupplierId = 69
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@SupplierId", SupplierId);
                 command.Parameters.AddWithValue("@SupName", SupName);

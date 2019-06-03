@@ -550,7 +550,7 @@
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(75, 34);
             this.btnEditProduct.TabIndex = 10;
-            this.btnEditProduct.Text = "Edit";
+            this.btnEditProduct.Text = "Save";
             this.btnEditProduct.UseVisualStyleBackColor = false;
             this.btnEditProduct.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -657,7 +657,7 @@
             this.btnEditSup.Name = "btnEditSup";
             this.btnEditSup.Size = new System.Drawing.Size(75, 39);
             this.btnEditSup.TabIndex = 9;
-            this.btnEditSup.Text = "Edit";
+            this.btnEditSup.Text = "Save";
             this.btnEditSup.UseVisualStyleBackColor = false;
             this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
             // 
@@ -676,7 +676,7 @@
             // 
             this.txtSupName.Location = new System.Drawing.Point(243, 165);
             this.txtSupName.Name = "txtSupName";
-            this.txtSupName.Size = new System.Drawing.Size(100, 29);
+            this.txtSupName.Size = new System.Drawing.Size(369, 29);
             this.txtSupName.TabIndex = 7;
             // 
             // lblSupName

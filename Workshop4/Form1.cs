@@ -33,7 +33,6 @@ where Packages.PackageId = 1;
              
             
              */
-            //dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
 
             var packages = DataLayer.PackageDB.GetPackages(); 
             var products = DataLayer.ProductsDB.GetProducts();
@@ -150,65 +149,77 @@ where Packages.PackageId = 1;
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataLayer.ProductsDB.AddProducts(txtProdName.Text);
-                MessageBox.Show("Product successfully added.");
-            }
-            catch
-            {
-
-            }
             txtProdName.Text = "";
             BoxProdID.Text = "";
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (BoxProdID.Text == "")
             {
-                DataLayer.ProductsDB.EditProducts(txtProdName.Text, BoxProdID.Text);
-                MessageBox.Show("Product successfully edited.");
-            }
-            catch
-            {
+                try
+                {
+                    DataLayer.ProductsDB.AddProducts(txtProdName.Text);
+                    MessageBox.Show("Product successfully added.");
+                }
+                catch
+                {
 
+                }
             }
+            else
+            {
+                try
+                {
+                    DataLayer.ProductsDB.EditProducts(txtProdName.Text, BoxProdID.Text);
+                    MessageBox.Show("Product successfully edited.");
+                }
+                catch
+                {
+
+                }
+            }
+            
             txtProdName.Text = "";
             BoxProdID.Text = "";
         }
 
         private void btnNewSup_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataLayer.SuppliersDB.AddSuppliers(++DataLayer.SuppliersDB.maxSupplierId, txtSupName.Text);
-                MessageBox.Show("Supplier successfully added.");
-            }
-            catch
-            {
-
-            }
-            txtSupName.Text = "";
             BoxSupId.Text = "";
-            
+            txtSupName.Text = "";
         }
 
         private void btnEditSup_Click(object sender, EventArgs e)
         {
-            try
+            if (BoxSupId.Text == "")
             {
-                DataLayer.SuppliersDB.EditSuppliers(BoxSupId.Text, txtSupName.Text);
-                MessageBox.Show("Supplier successfully edited.");
-            }
-            catch
-            {
+                try
+                {
+                    DataLayer.SuppliersDB.AddSuppliers(++DataLayer.SuppliersDB.maxSupplierId, txtSupName.Text);
+                    MessageBox.Show("Supplier successfully added.");
+                }
+                catch
+                {
 
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataLayer.SuppliersDB.EditSuppliers(BoxSupId.Text, txtSupName.Text);
+                    MessageBox.Show("Supplier successfully edited.");
+                }
+                catch
+                {
+
+                }
+
+                txtSupName.Text = "";
+                BoxSupId.Text = "";
             }
             
-            txtSupName.Text = "";
-            BoxSupId.Text = "";
         }
     }
 }
