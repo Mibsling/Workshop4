@@ -63,7 +63,21 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
             
              */
             dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
-            cBoxPackages.Items.Add("test");
+
+            var packages = DataLayer.PackageDB.GetPackages();
+            cBoxPackages.DataSource = packages;
+            cBoxPackages.DisplayMember = "PkgName";
+            txtPkgId.DataBindings.Add("Text", packages, "PackageId");
+            txtPkgName.DataBindings.Add("Text", packages, "PkgName");
+            txtPkgDesc.DataBindings.Add("Text", packages, "PkgDesc");
+            dtpPkgStartDate.DataBindings.Add("Value", packages, "PkgStartDate");
+            dtpPkgEndDate.DataBindings.Add("Value", packages, "PkgEndDate");
+            txtBasePrice.DataBindings.Add("Text", packages, "PkgBasePrice");
+            txtAgencyCommission.DataBindings.Add("Text", packages, "PkgAgencyCommission");
+            //cbSuppliers.DataSource = DataLayer.SuppliersDB.
+            cbProducts.DataSource = DataLayer.ProductsDB.GetProducts();
+            cbProducts.DisplayMember = "ProdName";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,24 +92,7 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
 
         }
 
-        private void btnAddProduct_Click_1(object sender, EventArgs e)
-        {
-
-            lboxAddedProducts.Items.Add("test");
-        }
-
-        private void btnRemoveProduct_Click(object sender, EventArgs e)
-        {
-            var selectedItems = lboxAddedProducts.SelectedItems;
-
-            if (lboxAddedProducts.SelectedIndex != -1)
-            {
-                for (int i = selectedItems.Count - 1; i >= 0; i--)
-                    lboxAddedProducts.Items.Remove(selectedItems[i]);
-            }
-        }
-
-        private void btnClearPackage_Click(object sender, EventArgs e)
+        private void BtnClearPackage_Click(object sender, EventArgs e)
         {
             txtPkgName.Text = "";
             txtBasePrice.Text = "";
@@ -106,14 +103,31 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
             dtpPkgEndDate.ResetText();
         }
 
-        private void btnSavePackage_Click(object sender, EventArgs e)
+        private void BtnAddProduct_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dtpPkgStartDate.Value.Date.ToString());
+            lboxAddedProducts.Items.Add("test");
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        private void BtnRemoveProduct_Click(object sender, EventArgs e)
         {
-           
+            var selectedItems = lboxAddedProducts.SelectedItems;
+
+            if (lboxAddedProducts.SelectedIndex != -1)
+            {
+                for (int i = selectedItems.Count - 1; i >= 0; i--)
+                    lboxAddedProducts.Items.Remove(selectedItems[i]);
+            }
+        }
+
+        private void BtnSavePackage_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(dtpPkgStartDate.Value.Date.ToString() + "\n test\n test");
+        }
+
+        private void CBoxPackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cBoxPackages.DataSource = DataLayer.ProductsDB.GetProducts();
+            //cBoxPackages.DisplayMember = "ProdName";
         }
     }
 }
