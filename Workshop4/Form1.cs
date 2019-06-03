@@ -38,28 +38,13 @@ namespace Workshop4
              *  b)the Package End Date must be later than Package Start Date
              *  c)Package Name and Package Description cannot be null
              
+            select s.SupName, p.ProdName from Products p
+join Products_Suppliers ps on ps.ProductId = p.ProductId
+join Suppliers s on ps.SupplierId = s.SupplierId
+join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId
+join Packages on Packages.PackageId = pps.PackageId
+where Packages.PackageId = 1;
              
-             select distinct Packages.PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission from packages 
-                JOIN Packages_Products_Suppliers AS PPS
-	                ON Packages.PackageId = PPS.PackageId
-                JOIN Products_Suppliers AS PS
-	                ON PPS.ProductSupplierId = PS.ProductSupplierId;
-
-             SELECT Packages.PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission from packages 
-                JOIN Packages_Products_Suppliers AS PPS
-	                ON Packages.PackageId = PPS.PackageId
-                JOIN Products_Suppliers AS PS
-	                ON PPS.ProductSupplierId = PS.ProductSupplierId
-				JOIN Products
-					ON PS.ProductId = Products.ProductId
-				WHERE Products.ProductId = 7
-
-select * from Packages_Products_Suppliers;
-select * from products;
-
-SELECT * FROM Products_Suppliers WHERE ProductId = 6;
-
-
             
              */
             dataGridView1.DataSource = DataLayer.ProductsDB.GetProducts();
@@ -121,7 +106,28 @@ SELECT * FROM Products_Suppliers WHERE ProductId = 6;
 
         private void BtnSavePackage_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dtpPkgStartDate.Value.Date.ToString() + "\n test\n test");
+            string erMsg = "";
+            if (txtPkgName.Text.Trim() == "")
+            {
+                erMsg += "-Package Name can't be empty.\n";
+            }
+            if (txtPkgDesc.Text.Trim() == "")
+            {
+                erMsg += "-Package Description can't be empty.\n";
+            }
+            if (dtpPkgStartDate.Value > dtpPkgEndDate.Value) {
+                erMsg += "-Package End Date must be later than Start Date.\n";
+            }
+            if (Convert.ToDecimal(txtBasePrice.Text) < Convert.ToDecimal(txtAgencyCommission.Text))
+            {
+                erMsg += "-Agency Commision can't be greater than Package Base Price\n";
+            }
+            if (erMsg != "")
+            {
+                MessageBox.Show("Please correct the following: \n\n" + erMsg);
+            }
+            
+            //MessageBox.Show(dtpPkgStartDate.Value.Date.ToString() + "\n test\n test");
         }
 
         private void CBoxPackages_SelectedIndexChanged(object sender, EventArgs e)
