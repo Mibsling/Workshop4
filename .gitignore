@@ -265,3 +265,6 @@ __pycache__/
 /Workshop4/new_Form.cs
 /Workshop4/new_Form.Designer.cs
 /Workshop4/new_Form.resx
+/DataLayer/app.config
+/DataLayer/Properties/Settings.settings
+/DataLayer/Properties/Settings.Designer.cs
