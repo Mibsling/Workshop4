@@ -80,6 +80,7 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -99,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.NavPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // BackgroundPanel
@@ -547,6 +549,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Controls.Add(this.pictureBox6);
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
@@ -670,6 +673,14 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(5, 37);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(389, 423);
+            this.dataGridView2.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -709,6 +720,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.NavPanel.ResumeLayout(false);
             this.NavPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -765,6 +777,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 
