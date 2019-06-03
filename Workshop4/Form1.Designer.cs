@@ -92,6 +92,7 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
+            this.btnNewPackage = new System.Windows.Forms.Button();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -181,11 +182,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnNewPackage);
+            this.tabPage1.Controls.Add(this.btnClearPackage);
+            this.tabPage1.Controls.Add(this.btnSavePackage);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.txtAgencyCommission);
-            this.tabPage1.Controls.Add(this.btnClearPackage);
             this.tabPage1.Controls.Add(this.cBoxPackages);
-            this.tabPage1.Controls.Add(this.btnSavePackage);
             this.tabPage1.Controls.Add(this.lblAgencyCommission);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.txtBasePrice);
@@ -232,7 +234,7 @@
             // txtAgencyCommission
             // 
             this.txtAgencyCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAgencyCommission.Location = new System.Drawing.Point(397, 417);
+            this.txtAgencyCommission.Location = new System.Drawing.Point(481, 402);
             this.txtAgencyCommission.Name = "txtAgencyCommission";
             this.txtAgencyCommission.Size = new System.Drawing.Size(100, 24);
             this.txtAgencyCommission.TabIndex = 15;
@@ -242,7 +244,7 @@
             this.btnClearPackage.BackColor = System.Drawing.Color.DarkOrange;
             this.btnClearPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClearPackage.Location = new System.Drawing.Point(305, 434);
+            this.btnClearPackage.Location = new System.Drawing.Point(365, 438);
             this.btnClearPackage.Name = "btnClearPackage";
             this.btnClearPackage.Size = new System.Drawing.Size(75, 34);
             this.btnClearPackage.TabIndex = 26;
@@ -265,7 +267,7 @@
             this.btnSavePackage.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSavePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSavePackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSavePackage.Location = new System.Drawing.Point(224, 434);
+            this.btnSavePackage.Location = new System.Drawing.Point(261, 438);
             this.btnSavePackage.Name = "btnSavePackage";
             this.btnSavePackage.Size = new System.Drawing.Size(75, 34);
             this.btnSavePackage.TabIndex = 25;
@@ -279,7 +281,7 @@
             this.lblAgencyCommission.BackColor = System.Drawing.Color.Transparent;
             this.lblAgencyCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgencyCommission.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAgencyCommission.Location = new System.Drawing.Point(379, 396);
+            this.lblAgencyCommission.Location = new System.Drawing.Point(309, 405);
             this.lblAgencyCommission.Name = "lblAgencyCommission";
             this.lblAgencyCommission.Size = new System.Drawing.Size(162, 18);
             this.lblAgencyCommission.TabIndex = 7;
@@ -386,7 +388,7 @@
             // txtBasePrice
             // 
             this.txtBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasePrice.Location = new System.Drawing.Point(96, 417);
+            this.txtBasePrice.Location = new System.Drawing.Point(185, 402);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Size = new System.Drawing.Size(100, 24);
             this.txtBasePrice.TabIndex = 14;
@@ -397,7 +399,7 @@
             this.lblBasePrice.BackColor = System.Drawing.Color.Transparent;
             this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBasePrice.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBasePrice.Location = new System.Drawing.Point(66, 396);
+            this.lblBasePrice.Location = new System.Drawing.Point(19, 405);
             this.lblBasePrice.Name = "lblBasePrice";
             this.lblBasePrice.Size = new System.Drawing.Size(160, 18);
             this.lblBasePrice.TabIndex = 6;
@@ -811,6 +813,18 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
+            // btnNewPackage
+            // 
+            this.btnNewPackage.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewPackage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNewPackage.Location = new System.Drawing.Point(151, 438);
+            this.btnNewPackage.Name = "btnNewPackage";
+            this.btnNewPackage.Size = new System.Drawing.Size(75, 34);
+            this.btnNewPackage.TabIndex = 28;
+            this.btnNewPackage.Text = "New";
+            this.btnNewPackage.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,6 +931,7 @@
         private System.Windows.Forms.TextBox txtSupName;
         private System.Windows.Forms.Label lblSupName;
         private System.Windows.Forms.Label lblSupplierId;
+        private System.Windows.Forms.Button btnNewPackage;
     }
 }
 

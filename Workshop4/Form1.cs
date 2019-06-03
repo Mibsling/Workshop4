@@ -44,7 +44,7 @@ where Packages.PackageId = 1;
             BoxSupId.DataSource = suppliers;
             BoxSupId.DisplayMember = "SupplierId";
 
-            // Get max SupplierID
+            // Get max SupplierID (needed because SupplierId is not identity column)
             int maxSupId = 0;
             foreach (var s in suppliers)
             {
