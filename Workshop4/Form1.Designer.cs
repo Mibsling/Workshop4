@@ -234,7 +234,7 @@
             // txtAgencyCommission
             // 
             this.txtAgencyCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAgencyCommission.Location = new System.Drawing.Point(481, 402);
+            this.txtAgencyCommission.Location = new System.Drawing.Point(481, 398);
             this.txtAgencyCommission.Name = "txtAgencyCommission";
             this.txtAgencyCommission.Size = new System.Drawing.Size(100, 24);
             this.txtAgencyCommission.TabIndex = 15;
@@ -244,7 +244,7 @@
             this.btnClearPackage.BackColor = System.Drawing.Color.DarkOrange;
             this.btnClearPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClearPackage.Location = new System.Drawing.Point(365, 438);
+            this.btnClearPackage.Location = new System.Drawing.Point(368, 433);
             this.btnClearPackage.Name = "btnClearPackage";
             this.btnClearPackage.Size = new System.Drawing.Size(75, 34);
             this.btnClearPackage.TabIndex = 26;
@@ -257,7 +257,7 @@
             this.cBoxPackages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxPackages.FormattingEnabled = true;
-            this.cBoxPackages.Location = new System.Drawing.Point(113, 50);
+            this.cBoxPackages.Location = new System.Drawing.Point(113, 43);
             this.cBoxPackages.Name = "cBoxPackages";
             this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
             this.cBoxPackages.TabIndex = 25;
@@ -267,7 +267,7 @@
             this.btnSavePackage.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSavePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSavePackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSavePackage.Location = new System.Drawing.Point(261, 438);
+            this.btnSavePackage.Location = new System.Drawing.Point(264, 433);
             this.btnSavePackage.Name = "btnSavePackage";
             this.btnSavePackage.Size = new System.Drawing.Size(75, 34);
             this.btnSavePackage.TabIndex = 25;
@@ -281,7 +281,7 @@
             this.lblAgencyCommission.BackColor = System.Drawing.Color.Transparent;
             this.lblAgencyCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgencyCommission.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAgencyCommission.Location = new System.Drawing.Point(309, 405);
+            this.lblAgencyCommission.Location = new System.Drawing.Point(309, 401);
             this.lblAgencyCommission.Name = "lblAgencyCommission";
             this.lblAgencyCommission.Size = new System.Drawing.Size(162, 18);
             this.lblAgencyCommission.TabIndex = 7;
@@ -300,7 +300,7 @@
             this.groupBox1.Controls.Add(this.cbProducts);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(39, 267);
+            this.groupBox1.Location = new System.Drawing.Point(39, 263);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(588, 126);
             this.groupBox1.TabIndex = 23;
@@ -388,7 +388,7 @@
             // txtBasePrice
             // 
             this.txtBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasePrice.Location = new System.Drawing.Point(185, 402);
+            this.txtBasePrice.Location = new System.Drawing.Point(185, 398);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Size = new System.Drawing.Size(100, 24);
             this.txtBasePrice.TabIndex = 14;
@@ -399,7 +399,7 @@
             this.lblBasePrice.BackColor = System.Drawing.Color.Transparent;
             this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBasePrice.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBasePrice.Location = new System.Drawing.Point(19, 405);
+            this.lblBasePrice.Location = new System.Drawing.Point(19, 401);
             this.lblBasePrice.Name = "lblBasePrice";
             this.lblBasePrice.Size = new System.Drawing.Size(160, 18);
             this.lblBasePrice.TabIndex = 6;
@@ -411,7 +411,7 @@
             this.lblEndDate.BackColor = System.Drawing.Color.Transparent;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEndDate.Location = new System.Drawing.Point(330, 151);
+            this.lblEndDate.Location = new System.Drawing.Point(330, 144);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(77, 18);
             this.lblEndDate.TabIndex = 3;
@@ -423,7 +423,7 @@
             this.lblPkgId.BackColor = System.Drawing.Color.Transparent;
             this.lblPkgId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkgId.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPkgId.Location = new System.Drawing.Point(19, 97);
+            this.lblPkgId.Location = new System.Drawing.Point(19, 90);
             this.lblPkgId.Name = "lblPkgId";
             this.lblPkgId.Size = new System.Drawing.Size(99, 18);
             this.lblPkgId.TabIndex = 22;
@@ -444,7 +444,7 @@
             // txtPkgDesc
             // 
             this.txtPkgDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPkgDesc.Location = new System.Drawing.Point(22, 222);
+            this.txtPkgDesc.Location = new System.Drawing.Point(22, 215);
             this.txtPkgDesc.Multiline = true;
             this.txtPkgDesc.Name = "txtPkgDesc";
             this.txtPkgDesc.Size = new System.Drawing.Size(406, 45);
@@ -456,7 +456,7 @@
             this.lblPkgDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblPkgDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkgDesc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPkgDesc.Location = new System.Drawing.Point(16, 199);
+            this.lblPkgDesc.Location = new System.Drawing.Point(16, 192);
             this.lblPkgDesc.Name = "lblPkgDesc";
             this.lblPkgDesc.Size = new System.Drawing.Size(174, 20);
             this.lblPkgDesc.TabIndex = 1;
@@ -466,7 +466,7 @@
             // 
             this.txtPkgId.Enabled = false;
             this.txtPkgId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPkgId.Location = new System.Drawing.Point(151, 94);
+            this.txtPkgId.Location = new System.Drawing.Point(151, 87);
             this.txtPkgId.Name = "txtPkgId";
             this.txtPkgId.Size = new System.Drawing.Size(148, 24);
             this.txtPkgId.TabIndex = 21;
@@ -477,7 +477,7 @@
             this.lblPkgName.BackColor = System.Drawing.Color.Transparent;
             this.lblPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkgName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPkgName.Location = new System.Drawing.Point(19, 120);
+            this.lblPkgName.Location = new System.Drawing.Point(19, 113);
             this.lblPkgName.Name = "lblPkgName";
             this.lblPkgName.Size = new System.Drawing.Size(122, 18);
             this.lblPkgName.TabIndex = 0;
@@ -486,7 +486,7 @@
             // txtPkgName
             // 
             this.txtPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPkgName.Location = new System.Drawing.Point(151, 124);
+            this.txtPkgName.Location = new System.Drawing.Point(151, 117);
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(148, 24);
             this.txtPkgName.TabIndex = 12;
@@ -494,7 +494,7 @@
             // dtpPkgEndDate
             // 
             this.dtpPkgEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpPkgEndDate.Location = new System.Drawing.Point(331, 172);
+            this.dtpPkgEndDate.Location = new System.Drawing.Point(331, 165);
             this.dtpPkgEndDate.Name = "dtpPkgEndDate";
             this.dtpPkgEndDate.Size = new System.Drawing.Size(296, 24);
             this.dtpPkgEndDate.TabIndex = 17;
@@ -505,7 +505,7 @@
             this.lblStartDate.BackColor = System.Drawing.Color.Transparent;
             this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblStartDate.Location = new System.Drawing.Point(19, 151);
+            this.lblStartDate.Location = new System.Drawing.Point(19, 144);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(84, 18);
             this.lblStartDate.TabIndex = 2;
@@ -514,7 +514,7 @@
             // dtpPkgStartDate
             // 
             this.dtpPkgStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpPkgStartDate.Location = new System.Drawing.Point(22, 172);
+            this.dtpPkgStartDate.Location = new System.Drawing.Point(22, 165);
             this.dtpPkgStartDate.Name = "dtpPkgStartDate";
             this.dtpPkgStartDate.Size = new System.Drawing.Size(296, 24);
             this.dtpPkgStartDate.TabIndex = 16;
@@ -818,7 +818,7 @@
             this.btnNewPackage.BackColor = System.Drawing.Color.DarkOrange;
             this.btnNewPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNewPackage.Location = new System.Drawing.Point(151, 438);
+            this.btnNewPackage.Location = new System.Drawing.Point(154, 433);
             this.btnNewPackage.Name = "btnNewPackage";
             this.btnNewPackage.Size = new System.Drawing.Size(75, 34);
             this.btnNewPackage.TabIndex = 28;
