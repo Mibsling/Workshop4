@@ -235,7 +235,6 @@
             this.cBoxPackages.Name = "cBoxPackages";
             this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
             this.cBoxPackages.TabIndex = 25;
-            this.cBoxPackages.SelectedIndexChanged += new System.EventHandler(this.CBoxPackages_SelectedIndexChanged);
             // 
             // btnSavePackage
             // 

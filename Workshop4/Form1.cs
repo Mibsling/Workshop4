@@ -19,24 +19,10 @@ namespace Workshop4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //dgvPackages.DataSource = DataLayer.PackageDB.GetPackages();
 
             /*The agents need to add/edit travel packages.  This function must allow the user to enter data for the package,
              * and select from a product list to add products to the package.The application will also require simple add/edit
              * access for maintaining the product, suppliers, and product_suppliers data.
-             
-             * * The tables that will be used by this part of the project are:
-             * 1.Packages
-             * 2.Products
-             * 3.Products_suppliers
-             * 4.Suppliers
-             * 5.Packages_products_suppliers
-             * 
-             * 
-             * Make sure that you validate the data before creating the package:
-             *  a)the Agency Commission cannot be greater than the Base Price
-             *  b)the Package End Date must be later than Package Start Date
-             *  c)Package Name and Package Description cannot be null
              
             select s.SupName, p.ProdName from Products p
 join Products_Suppliers ps on ps.ProductId = p.ProductId
@@ -126,14 +112,7 @@ where Packages.PackageId = 1;
             {
                 MessageBox.Show("Please correct the following: \n\n" + erMsg);
             }
-            
-            //MessageBox.Show(dtpPkgStartDate.Value.Date.ToString() + "\n test\n test");
         }
 
-        private void CBoxPackages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //cBoxPackages.DataSource = DataLayer.ProductsDB.GetProducts();
-            //cBoxPackages.DisplayMember = "ProdName";
-        }
     }
 }
