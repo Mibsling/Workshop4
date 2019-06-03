@@ -125,10 +125,18 @@ where Packages.PackageId = 1;
             if (dtpPkgStartDate.Value > dtpPkgEndDate.Value) {
                 erMsg += "-Package End Date must be later than Start Date.\n";
             }
-            if (Convert.ToDecimal(txtBasePrice.Text) < Convert.ToDecimal(txtAgencyCommission.Text))
+            try
             {
-                erMsg += "-Agency Commision can't be greater than Package Base Price\n";
+                if (Convert.ToDecimal(txtBasePrice.Text) < Convert.ToDecimal(txtAgencyCommission.Text))
+                {
+                    erMsg += "-Agency Commision can't be greater than Package Base Price\n";
+                }
             }
+            catch (System.FormatException ex)
+            {
+                erMsg += "-Agency Commission and Package Base Price must be numerical.\n";
+            }
+            
             if (erMsg != "")
             {
                 MessageBox.Show("Please correct the following: \n\n" + erMsg);

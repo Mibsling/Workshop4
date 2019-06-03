@@ -76,6 +76,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.BoxSupId = new System.Windows.Forms.ComboBox();
+            this.btnEditSup = new System.Windows.Forms.Button();
+            this.btnNewSup = new System.Windows.Forms.Button();
+            this.txtSupName = new System.Windows.Forms.TextBox();
+            this.lblSupName = new System.Windows.Forms.Label();
+            this.lblSupplierId = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,12 +92,6 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
-            this.lblSupplierId = new System.Windows.Forms.Label();
-            this.lblSupName = new System.Windows.Forms.Label();
-            this.txtSupName = new System.Windows.Forms.TextBox();
-            this.btnNewSup = new System.Windows.Forms.Button();
-            this.btnEditSup = new System.Windows.Forms.Button();
-            this.BoxSupId = new System.Windows.Forms.ComboBox();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -255,7 +255,7 @@
             this.cBoxPackages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxPackages.FormattingEnabled = true;
-            this.cBoxPackages.Location = new System.Drawing.Point(382, 174);
+            this.cBoxPackages.Location = new System.Drawing.Point(113, 50);
             this.cBoxPackages.Name = "cBoxPackages";
             this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
             this.cBoxPackages.TabIndex = 25;
@@ -409,7 +409,7 @@
             this.lblEndDate.BackColor = System.Drawing.Color.Transparent;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEndDate.Location = new System.Drawing.Point(19, 151);
+            this.lblEndDate.Location = new System.Drawing.Point(330, 151);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(77, 18);
             this.lblEndDate.TabIndex = 3;
@@ -421,7 +421,7 @@
             this.lblPkgId.BackColor = System.Drawing.Color.Transparent;
             this.lblPkgId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkgId.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPkgId.Location = new System.Drawing.Point(19, 52);
+            this.lblPkgId.Location = new System.Drawing.Point(19, 97);
             this.lblPkgId.Name = "lblPkgId";
             this.lblPkgId.Size = new System.Drawing.Size(99, 18);
             this.lblPkgId.TabIndex = 22;
@@ -464,7 +464,7 @@
             // 
             this.txtPkgId.Enabled = false;
             this.txtPkgId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPkgId.Location = new System.Drawing.Point(151, 49);
+            this.txtPkgId.Location = new System.Drawing.Point(151, 94);
             this.txtPkgId.Name = "txtPkgId";
             this.txtPkgId.Size = new System.Drawing.Size(148, 24);
             this.txtPkgId.TabIndex = 21;
@@ -475,7 +475,7 @@
             this.lblPkgName.BackColor = System.Drawing.Color.Transparent;
             this.lblPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkgName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPkgName.Location = new System.Drawing.Point(19, 75);
+            this.lblPkgName.Location = new System.Drawing.Point(19, 120);
             this.lblPkgName.Name = "lblPkgName";
             this.lblPkgName.Size = new System.Drawing.Size(122, 18);
             this.lblPkgName.TabIndex = 0;
@@ -484,7 +484,7 @@
             // txtPkgName
             // 
             this.txtPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPkgName.Location = new System.Drawing.Point(151, 79);
+            this.txtPkgName.Location = new System.Drawing.Point(151, 124);
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(148, 24);
             this.txtPkgName.TabIndex = 12;
@@ -492,7 +492,7 @@
             // dtpPkgEndDate
             // 
             this.dtpPkgEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpPkgEndDate.Location = new System.Drawing.Point(20, 172);
+            this.dtpPkgEndDate.Location = new System.Drawing.Point(331, 172);
             this.dtpPkgEndDate.Name = "dtpPkgEndDate";
             this.dtpPkgEndDate.Size = new System.Drawing.Size(296, 24);
             this.dtpPkgEndDate.TabIndex = 17;
@@ -503,7 +503,7 @@
             this.lblStartDate.BackColor = System.Drawing.Color.Transparent;
             this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblStartDate.Location = new System.Drawing.Point(19, 103);
+            this.lblStartDate.Location = new System.Drawing.Point(19, 151);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(84, 18);
             this.lblStartDate.TabIndex = 2;
@@ -512,7 +512,7 @@
             // dtpPkgStartDate
             // 
             this.dtpPkgStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpPkgStartDate.Location = new System.Drawing.Point(22, 124);
+            this.dtpPkgStartDate.Location = new System.Drawing.Point(22, 172);
             this.dtpPkgStartDate.Name = "dtpPkgStartDate";
             this.dtpPkgStartDate.Size = new System.Drawing.Size(296, 24);
             this.dtpPkgStartDate.TabIndex = 16;
@@ -642,6 +642,61 @@
             this.tabPage4.Text = "Suppliers";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // BoxSupId
+            // 
+            this.BoxSupId.FormattingEnabled = true;
+            this.BoxSupId.Location = new System.Drawing.Point(243, 121);
+            this.BoxSupId.Name = "BoxSupId";
+            this.BoxSupId.Size = new System.Drawing.Size(121, 32);
+            this.BoxSupId.TabIndex = 10;
+            // 
+            // btnEditSup
+            // 
+            this.btnEditSup.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEditSup.Location = new System.Drawing.Point(301, 220);
+            this.btnEditSup.Name = "btnEditSup";
+            this.btnEditSup.Size = new System.Drawing.Size(75, 39);
+            this.btnEditSup.TabIndex = 9;
+            this.btnEditSup.Text = "Edit";
+            this.btnEditSup.UseVisualStyleBackColor = false;
+            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
+            // 
+            // btnNewSup
+            // 
+            this.btnNewSup.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewSup.Location = new System.Drawing.Point(210, 220);
+            this.btnNewSup.Name = "btnNewSup";
+            this.btnNewSup.Size = new System.Drawing.Size(75, 39);
+            this.btnNewSup.TabIndex = 8;
+            this.btnNewSup.Text = "New";
+            this.btnNewSup.UseVisualStyleBackColor = false;
+            this.btnNewSup.Click += new System.EventHandler(this.btnNewSup_Click);
+            // 
+            // txtSupName
+            // 
+            this.txtSupName.Location = new System.Drawing.Point(243, 165);
+            this.txtSupName.Name = "txtSupName";
+            this.txtSupName.Size = new System.Drawing.Size(100, 29);
+            this.txtSupName.TabIndex = 7;
+            // 
+            // lblSupName
+            // 
+            this.lblSupName.AutoSize = true;
+            this.lblSupName.Location = new System.Drawing.Point(72, 170);
+            this.lblSupName.Name = "lblSupName";
+            this.lblSupName.Size = new System.Drawing.Size(149, 24);
+            this.lblSupName.TabIndex = 5;
+            this.lblSupName.Text = "Supplier Name";
+            // 
+            // lblSupplierId
+            // 
+            this.lblSupplierId.AutoSize = true;
+            this.lblSupplierId.Location = new System.Drawing.Point(72, 129);
+            this.lblSupplierId.Name = "lblSupplierId";
+            this.lblSupplierId.Size = new System.Drawing.Size(111, 24);
+            this.lblSupplierId.TabIndex = 4;
+            this.lblSupplierId.Text = "Supplier Id";
+            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
@@ -755,61 +810,6 @@
             this.btnPackages.TabIndex = 5;
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
-            // 
-            // lblSupplierId
-            // 
-            this.lblSupplierId.AutoSize = true;
-            this.lblSupplierId.Location = new System.Drawing.Point(72, 129);
-            this.lblSupplierId.Name = "lblSupplierId";
-            this.lblSupplierId.Size = new System.Drawing.Size(111, 24);
-            this.lblSupplierId.TabIndex = 4;
-            this.lblSupplierId.Text = "Supplier Id";
-            // 
-            // lblSupName
-            // 
-            this.lblSupName.AutoSize = true;
-            this.lblSupName.Location = new System.Drawing.Point(72, 170);
-            this.lblSupName.Name = "lblSupName";
-            this.lblSupName.Size = new System.Drawing.Size(149, 24);
-            this.lblSupName.TabIndex = 5;
-            this.lblSupName.Text = "Supplier Name";
-            // 
-            // txtSupName
-            // 
-            this.txtSupName.Location = new System.Drawing.Point(243, 165);
-            this.txtSupName.Name = "txtSupName";
-            this.txtSupName.Size = new System.Drawing.Size(100, 29);
-            this.txtSupName.TabIndex = 7;
-            // 
-            // btnNewSup
-            // 
-            this.btnNewSup.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewSup.Location = new System.Drawing.Point(210, 220);
-            this.btnNewSup.Name = "btnNewSup";
-            this.btnNewSup.Size = new System.Drawing.Size(75, 39);
-            this.btnNewSup.TabIndex = 8;
-            this.btnNewSup.Text = "New";
-            this.btnNewSup.UseVisualStyleBackColor = false;
-            this.btnNewSup.Click += new System.EventHandler(this.btnNewSup_Click);
-            // 
-            // btnEditSup
-            // 
-            this.btnEditSup.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEditSup.Location = new System.Drawing.Point(301, 220);
-            this.btnEditSup.Name = "btnEditSup";
-            this.btnEditSup.Size = new System.Drawing.Size(75, 39);
-            this.btnEditSup.TabIndex = 9;
-            this.btnEditSup.Text = "Edit";
-            this.btnEditSup.UseVisualStyleBackColor = false;
-            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
-            // 
-            // BoxSupId
-            // 
-            this.BoxSupId.FormattingEnabled = true;
-            this.BoxSupId.Location = new System.Drawing.Point(243, 121);
-            this.BoxSupId.Name = "BoxSupId";
-            this.BoxSupId.Size = new System.Drawing.Size(121, 32);
-            this.BoxSupId.TabIndex = 10;
             // 
             // Form1
             // 
