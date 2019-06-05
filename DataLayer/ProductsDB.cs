@@ -39,7 +39,7 @@ namespace DataLayer
             return results;
         }
 
-        public static void AddProducts(string ProdName)
+        public static void AddProduct(string ProdName)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             try
@@ -48,7 +48,7 @@ namespace DataLayer
                 string sql = "INSERT INTO Products (ProdName) VALUES (@ProdName)";
 
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@ProdName", ProdName);                
+                command.Parameters.AddWithValue("@ProdName", ProdName);
                 command.ExecuteNonQuery();
             }
             catch
@@ -61,7 +61,7 @@ namespace DataLayer
             }
         }
 
-        public static void EditProducts(string ProdName, string ProdID)
+        public static void EditProduct(string ProdName, string ProdID)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             try
@@ -80,10 +80,30 @@ namespace DataLayer
             {
                 connection.Close();
             }
-
-
         }
 
+        public static void DeleteProduct(int ProdID)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string deleteStatement = "DELETE FROM Products " +
+                                     "WHERE ProductID = @ProductID";
+            SqlCommand cmd = new SqlCommand(deleteStatement, connection);
+            cmd.Parameters.AddWithValue("@ProductID", ProdID);
+            try
+            {
+                //con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
+
     }
+}
 

@@ -34,13 +34,12 @@ where Packages.PackageId = 1;
             
              */
 
-            var packages = DataLayer.PackageDB.GetPackages(); 
+            var packages = DataLayer.PackageDB.GetPackages();
             var products = DataLayer.ProductsDB.GetProducts();
             var suppliers = DataLayer.SuppliersDB.GetSuppliers();
             BoxProdID.DataSource = products;
             BoxProdID.DisplayMember = "ProductId";
             txtProdName.DataBindings.Add("Text", products, "ProdName");
-
             BoxSupId.DataSource = suppliers;
             BoxSupId.DisplayMember = "SupplierId";
 
@@ -53,7 +52,7 @@ where Packages.PackageId = 1;
                     maxSupId = s.SupplierId;
                 }
             }
-
+            
             txtSupName.DataBindings.Add("Text", suppliers, "SupName");
             cBoxPackages.DataSource = packages;
             cBoxPackages.DisplayMember = "PkgName";
@@ -68,7 +67,6 @@ where Packages.PackageId = 1;
             cbSuppliers.DisplayMember = "SupName";
             cbProducts.DataSource = DataLayer.ProductsDB.GetProducts();
             cbProducts.DisplayMember = "ProdName";
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,7 +78,6 @@ where Packages.PackageId = 1;
             lboxAddedProducts.Items.Clear();
             dtpPkgStartDate.ResetText();
             dtpPkgEndDate.ResetText();
-
         }
 
         private void BtnClearPackage_Click(object sender, EventArgs e)
@@ -149,18 +146,20 @@ where Packages.PackageId = 1;
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            BoxProdID.Enabled = false;
             txtProdName.Text = "";
-            BoxProdID.Text = "";
+            btnNewProdCancel.Visible = true;
+            btnDeleteProduct.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (BoxProdID.Text == "")
+            if (BoxProdID.Enabled == false)
             {
                 try
                 {
-                    DataLayer.ProductsDB.AddProducts(txtProdName.Text);
-                    MessageBox.Show("Product successfully added.");
+                    DataLayer.ProductsDB.AddProduct(txtProdName.Text);
+                    MessageBox.Show("Product '"+txtProdName.Text+"' successfully added.");
                 }
                 catch
                 {
@@ -171,8 +170,8 @@ where Packages.PackageId = 1;
             {
                 try
                 {
-                    DataLayer.ProductsDB.EditProducts(txtProdName.Text, BoxProdID.Text);
-                    MessageBox.Show("Product successfully edited.");
+                    DataLayer.ProductsDB.EditProduct(txtProdName.Text, BoxProdID.Text);
+                    MessageBox.Show("Product '"+txtProdName.Text+"' successfully edited.");
                 }
                 catch
                 {
@@ -180,24 +179,63 @@ where Packages.PackageId = 1;
                 }
             }
             
-            txtProdName.Text = "";
-            BoxProdID.Text = "";
+            var products = DataLayer.ProductsDB.GetProducts();
+            BoxProdID.DataSource = products;
+            BoxProdID.DisplayMember = "ProductId";
+            BoxProdID.Enabled = true;
+            txtProdName.DataBindings.RemoveAt(0);
+            txtProdName.DataBindings.Add("Text", products, "ProdName");
+            btnNewProdCancel.Visible = false;
+            btnDeleteProduct.Visible = true;
+        }
+        private void BtnNewProdCancel_Click(object sender, EventArgs e)
+        {
+            var products = DataLayer.ProductsDB.GetProducts();
+            BoxProdID.DataSource = products;
+            BoxProdID.DisplayMember = "ProductId";
+            BoxProdID.Enabled = true;
+            txtProdName.DataBindings.RemoveAt(0);
+            txtProdName.DataBindings.Add("Text", products, "ProdName");
+            btnNewProdCancel.Visible = false;
+            btnDeleteProduct.Visible = true;
+        }
+        private void BtnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            var deletedProd = txtProdName.Text;
+            try
+            {
+                DataLayer.ProductsDB.DeleteProduct(Convert.ToInt32(BoxProdID.Text));
+                MessageBox.Show("Product '" + deletedProd + "' deleted.");
+            }
+            catch
+            {
+                MessageBox.Show("Can't delete '" + txtProdName.Text + "'. Existing packages might still include this product.");
+            }
+            
+            var products = DataLayer.ProductsDB.GetProducts();
+            BoxProdID.DataSource = products;
+            BoxProdID.DisplayMember = "ProductId";
+            txtProdName.DataBindings.RemoveAt(0);
+            txtProdName.DataBindings.Add("Text", products, "ProdName");
+            btnNewProdCancel.Visible = false;
         }
 
         private void btnNewSup_Click(object sender, EventArgs e)
         {
-            BoxSupId.Text = "";
+            BoxSupId.Enabled = false;
             txtSupName.Text = "";
+            btnNewSupCancel.Visible = true;
+            btnDelSupplier.Visible = false;
         }
 
         private void btnEditSup_Click(object sender, EventArgs e)
         {
-            if (BoxSupId.Text == "")
+            if (BoxSupId.Enabled == false)
             {
                 try
                 {
-                    DataLayer.SuppliersDB.AddSuppliers(++DataLayer.SuppliersDB.maxSupplierId, txtSupName.Text);
-                    MessageBox.Show("Supplier successfully added.");
+                    DataLayer.SuppliersDB.AddSupplier(++DataLayer.SuppliersDB.maxSupplierId, txtSupName.Text);
+                    MessageBox.Show("Supplier '" + txtSupName.Text+" ' successfully added.");
                 }
                 catch
                 {
@@ -208,18 +246,71 @@ where Packages.PackageId = 1;
             {
                 try
                 {
-                    DataLayer.SuppliersDB.EditSuppliers(BoxSupId.Text, txtSupName.Text);
-                    MessageBox.Show("Supplier successfully edited.");
+                    DataLayer.SuppliersDB.EditSupplier(BoxSupId.Text, txtSupName.Text);
+                    MessageBox.Show("Supplier '" + txtSupName.Text+"' successfully edited.");
                 }
                 catch
                 {
 
                 }
-
-                txtSupName.Text = "";
-                BoxSupId.Text = "";
             }
-            
+
+            var suppliers = DataLayer.SuppliersDB.GetSuppliers();
+            BoxSupId.DataSource = suppliers;
+            BoxSupId.DisplayMember = "SupplierId";
+            BoxSupId.Enabled = true;
+            txtSupName.DataBindings.RemoveAt(0);
+            txtSupName.DataBindings.Add("Text", suppliers, "SupName");
+            btnNewSup.Visible = true;
+            btnNewSupCancel.Visible = false;
         }
+        private void BtnNewSupCancel_Click(object sender, EventArgs e)
+        {
+            var suppliers = DataLayer.SuppliersDB.GetSuppliers();
+            BoxSupId.DataSource = suppliers;
+            BoxSupId.DisplayMember = "SupplierId";
+            BoxSupId.Enabled = true;
+            txtSupName.DataBindings.RemoveAt(0);
+            txtSupName.DataBindings.Add("Text", suppliers, "SupName");
+            btnNewSupCancel.Visible = false;
+            btnNewSup.Visible = true;
+            btnDelSupplier.Visible = true;
+        }
+        private void BtnDelSupplier_Click(object sender, EventArgs e)
+        {
+            var deletedSup = txtSupName.Text;
+            try
+            {
+                DataLayer.SuppliersDB.DeleteSupplier(Convert.ToInt32(BoxSupId.Text));
+                MessageBox.Show("Supplier '" + deletedSup + "' deleted.");
+            }
+            catch
+            {
+                MessageBox.Show("Can't delete '" + deletedSup + "'. Existing packages might still include this Supplier.");
+            }
+
+            var suppliers = DataLayer.SuppliersDB.GetSuppliers();
+            BoxSupId.DataSource = suppliers;
+            BoxSupId.DisplayMember = "SupplierId";
+            txtSupName.DataBindings.RemoveAt(0);
+            txtSupName.DataBindings.Add("Text", suppliers, "SupName");
+            btnNewSupCancel.Visible = false;
+        }
+
+        private void CBoxPackages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //change lBoxAddedProducts based on txtPkgId.Text
+
+
+        }
+
+        private void BtnNewPackage_Click(object sender, EventArgs e)
+        {
+            cBoxPackages.SelectedIndex = -1;
+            txtPkgId.Text = "";
+            txtPkgName.Text = "";
+        }
+
+        
     }
 }

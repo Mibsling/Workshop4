@@ -10,13 +10,25 @@ namespace DataLayer
 {
     public static class Packages_Products_SuppliersDB
     {
-        public static List<Package_Product_Supplier> GetPackage_Product_Supplier()
+        public static List<Package_Product_Supplier> GetPackage_Product_Supplier(int PkgId)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             List<Package_Product_Supplier> results = new List<Package_Product_Supplier>();
             try
             {
-                string sql = "SELECT PackageId, ProductSupplierId FROM Packages_Products_Suppliers";
+
+                /*select s.SupName, p.ProdName from Products p
+join Products_Suppliers ps on ps.ProductId = p.ProductId
+join Suppliers s on ps.SupplierId = s.SupplierId
+join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId
+join Packages on Packages.PackageId = pps.PackageId
+where Packages.PackageId = 1;*/
+                string sql = "select s.SupName, p.ProdName from Products p "+
+"join Products_Suppliers ps on ps.ProductId = p.ProductId "+
+"join Suppliers s on ps.SupplierId = s.SupplierId "+
+"join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId "+
+"join Packages on Packages.PackageId = pps.PackageId "+
+"where Packages.PackageId = ; "+ PkgId;
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())

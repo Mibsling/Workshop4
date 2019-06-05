@@ -42,14 +42,7 @@ namespace DataLayer
             }
             return results;
         }
-        /*
-        public static int getMaxSupplierId()
-        {
-
-        }*/
-
-
-        public static void AddSuppliers(int SupplierId, string SupName)
+        public static void AddSupplier(int SupplierId, string SupName)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             try
@@ -62,7 +55,7 @@ namespace DataLayer
             }
             catch
             {
-                //MessageBox.Show();
+
             }
             finally
             {
@@ -70,7 +63,7 @@ namespace DataLayer
             }
         }
 
-        public static void EditSuppliers(string SupplierId, string SupName)
+        public static void EditSupplier(string SupplierId, string SupName)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             try
@@ -89,8 +82,28 @@ namespace DataLayer
             {
                 connection.Close();
             }
+        }
 
-
+        public static void DeleteSupplier(int SupID)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string deleteStatement = "DELETE FROM Suppliers " +
+                                     "WHERE SupplierId = @SupID";
+            SqlCommand cmd = new SqlCommand(deleteStatement, connection);
+            cmd.Parameters.AddWithValue("@SupID", SupID);
+            try
+            {
+                //con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
     }

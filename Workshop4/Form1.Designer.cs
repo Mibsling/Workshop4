@@ -36,12 +36,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnNewPackage = new System.Windows.Forms.Button();
+            this.btnClearPackage = new System.Windows.Forms.Button();
+            this.btnSavePackage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAgencyCommission = new System.Windows.Forms.TextBox();
-            this.btnClearPackage = new System.Windows.Forms.Button();
             this.cBoxPackages = new System.Windows.Forms.ComboBox();
-            this.btnSavePackage = new System.Windows.Forms.Button();
             this.lblAgencyCommission = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRemoveProduct = new System.Windows.Forms.Button();
@@ -66,6 +67,8 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dtpPkgStartDate = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnNewProdCancel = new System.Windows.Forms.Button();
             this.BoxProdID = new System.Windows.Forms.ComboBox();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.btnNewProduct = new System.Windows.Forms.Button();
@@ -76,6 +79,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnDelSupplier = new System.Windows.Forms.Button();
+            this.btnNewSupCancel = new System.Windows.Forms.Button();
             this.BoxSupId = new System.Windows.Forms.ComboBox();
             this.btnEditSup = new System.Windows.Forms.Button();
             this.btnNewSup = new System.Windows.Forms.Button();
@@ -92,7 +97,6 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
-            this.btnNewPackage = new System.Windows.Forms.Button();
             this.BackgroundPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -211,6 +215,45 @@
             this.tabPage1.Text = "Packages";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnNewPackage
+            // 
+            this.btnNewPackage.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewPackage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNewPackage.Location = new System.Drawing.Point(154, 433);
+            this.btnNewPackage.Name = "btnNewPackage";
+            this.btnNewPackage.Size = new System.Drawing.Size(75, 34);
+            this.btnNewPackage.TabIndex = 28;
+            this.btnNewPackage.Text = "New";
+            this.btnNewPackage.UseVisualStyleBackColor = false;
+            this.btnNewPackage.Click += new System.EventHandler(this.BtnNewPackage_Click);
+            // 
+            // btnClearPackage
+            // 
+            this.btnClearPackage.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnClearPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearPackage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnClearPackage.Location = new System.Drawing.Point(368, 433);
+            this.btnClearPackage.Name = "btnClearPackage";
+            this.btnClearPackage.Size = new System.Drawing.Size(75, 34);
+            this.btnClearPackage.TabIndex = 26;
+            this.btnClearPackage.Text = "Clear Form";
+            this.btnClearPackage.UseVisualStyleBackColor = false;
+            this.btnClearPackage.Click += new System.EventHandler(this.BtnClearPackage_Click);
+            // 
+            // btnSavePackage
+            // 
+            this.btnSavePackage.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSavePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePackage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSavePackage.Location = new System.Drawing.Point(264, 433);
+            this.btnSavePackage.Name = "btnSavePackage";
+            this.btnSavePackage.Size = new System.Drawing.Size(75, 34);
+            this.btnSavePackage.TabIndex = 25;
+            this.btnSavePackage.Text = "Save";
+            this.btnSavePackage.UseVisualStyleBackColor = false;
+            this.btnSavePackage.Click += new System.EventHandler(this.BtnSavePackage_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkOrange;
@@ -239,19 +282,6 @@
             this.txtAgencyCommission.Size = new System.Drawing.Size(100, 24);
             this.txtAgencyCommission.TabIndex = 15;
             // 
-            // btnClearPackage
-            // 
-            this.btnClearPackage.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnClearPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClearPackage.Location = new System.Drawing.Point(368, 433);
-            this.btnClearPackage.Name = "btnClearPackage";
-            this.btnClearPackage.Size = new System.Drawing.Size(75, 34);
-            this.btnClearPackage.TabIndex = 26;
-            this.btnClearPackage.Text = "Clear Form";
-            this.btnClearPackage.UseVisualStyleBackColor = false;
-            this.btnClearPackage.Click += new System.EventHandler(this.BtnClearPackage_Click);
-            // 
             // cBoxPackages
             // 
             this.cBoxPackages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -261,19 +291,7 @@
             this.cBoxPackages.Name = "cBoxPackages";
             this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
             this.cBoxPackages.TabIndex = 25;
-            // 
-            // btnSavePackage
-            // 
-            this.btnSavePackage.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSavePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSavePackage.Location = new System.Drawing.Point(264, 433);
-            this.btnSavePackage.Name = "btnSavePackage";
-            this.btnSavePackage.Size = new System.Drawing.Size(75, 34);
-            this.btnSavePackage.TabIndex = 25;
-            this.btnSavePackage.Text = "Save";
-            this.btnSavePackage.UseVisualStyleBackColor = false;
-            this.btnSavePackage.Click += new System.EventHandler(this.BtnSavePackage_Click);
+            this.cBoxPackages.SelectedIndexChanged += new System.EventHandler(this.CBoxPackages_SelectedIndexChanged);
             // 
             // lblAgencyCommission
             // 
@@ -521,6 +539,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnDeleteProduct);
+            this.tabPage3.Controls.Add(this.btnNewProdCancel);
             this.tabPage3.Controls.Add(this.BoxProdID);
             this.tabPage3.Controls.Add(this.btnEditProduct);
             this.tabPage3.Controls.Add(this.btnNewProduct);
@@ -536,10 +556,36 @@
             this.tabPage3.Text = "Products";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(504, 237);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(75, 34);
+            this.btnDeleteProduct.TabIndex = 14;
+            this.btnDeleteProduct.Text = "Delete";
+            this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.BtnDeleteProduct_Click);
+            // 
+            // btnNewProdCancel
+            // 
+            this.btnNewProdCancel.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewProdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnNewProdCancel.Location = new System.Drawing.Point(363, 237);
+            this.btnNewProdCancel.Name = "btnNewProdCancel";
+            this.btnNewProdCancel.Size = new System.Drawing.Size(93, 34);
+            this.btnNewProdCancel.TabIndex = 13;
+            this.btnNewProdCancel.Text = "Cancel";
+            this.btnNewProdCancel.UseVisualStyleBackColor = false;
+            this.btnNewProdCancel.Visible = false;
+            this.btnNewProdCancel.Click += new System.EventHandler(this.BtnNewProdCancel_Click);
+            // 
             // BoxProdID
             // 
+            this.BoxProdID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BoxProdID.FormattingEnabled = true;
-            this.BoxProdID.Location = new System.Drawing.Point(203, 114);
+            this.BoxProdID.Location = new System.Drawing.Point(243, 121);
             this.BoxProdID.Name = "BoxProdID";
             this.BoxProdID.Size = new System.Drawing.Size(121, 32);
             this.BoxProdID.TabIndex = 12;
@@ -547,8 +593,8 @@
             // btnEditProduct
             // 
             this.btnEditProduct.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditProduct.Location = new System.Drawing.Point(360, 237);
+            this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEditProduct.Location = new System.Drawing.Point(240, 237);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(75, 34);
             this.btnEditProduct.TabIndex = 10;
@@ -559,8 +605,8 @@
             // btnNewProduct
             // 
             this.btnNewProduct.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewProduct.Location = new System.Drawing.Point(224, 237);
+            this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnNewProduct.Location = new System.Drawing.Point(111, 237);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(81, 34);
             this.btnNewProduct.TabIndex = 9;
@@ -570,9 +616,9 @@
             // 
             // txtProdName
             // 
-            this.txtProdName.Location = new System.Drawing.Point(203, 180);
+            this.txtProdName.Location = new System.Drawing.Point(243, 164);
             this.txtProdName.Name = "txtProdName";
-            this.txtProdName.Size = new System.Drawing.Size(303, 29);
+            this.txtProdName.Size = new System.Drawing.Size(369, 29);
             this.txtProdName.TabIndex = 8;
             // 
             // lblProdName
@@ -629,6 +675,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnDelSupplier);
+            this.tabPage4.Controls.Add(this.btnNewSupCancel);
             this.tabPage4.Controls.Add(this.BoxSupId);
             this.tabPage4.Controls.Add(this.btnEditSup);
             this.tabPage4.Controls.Add(this.btnNewSup);
@@ -644,8 +692,34 @@
             this.tabPage4.Text = "Suppliers";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnDelSupplier
+            // 
+            this.btnDelSupplier.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDelSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnDelSupplier.Location = new System.Drawing.Point(504, 237);
+            this.btnDelSupplier.Name = "btnDelSupplier";
+            this.btnDelSupplier.Size = new System.Drawing.Size(75, 34);
+            this.btnDelSupplier.TabIndex = 12;
+            this.btnDelSupplier.Text = "Delete";
+            this.btnDelSupplier.UseVisualStyleBackColor = false;
+            this.btnDelSupplier.Click += new System.EventHandler(this.BtnDelSupplier_Click);
+            // 
+            // btnNewSupCancel
+            // 
+            this.btnNewSupCancel.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewSupCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnNewSupCancel.Location = new System.Drawing.Point(363, 237);
+            this.btnNewSupCancel.Name = "btnNewSupCancel";
+            this.btnNewSupCancel.Size = new System.Drawing.Size(93, 34);
+            this.btnNewSupCancel.TabIndex = 11;
+            this.btnNewSupCancel.Text = "Cancel";
+            this.btnNewSupCancel.UseVisualStyleBackColor = false;
+            this.btnNewSupCancel.Visible = false;
+            this.btnNewSupCancel.Click += new System.EventHandler(this.BtnNewSupCancel_Click);
+            // 
             // BoxSupId
             // 
+            this.BoxSupId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BoxSupId.FormattingEnabled = true;
             this.BoxSupId.Location = new System.Drawing.Point(243, 121);
             this.BoxSupId.Name = "BoxSupId";
@@ -655,9 +729,10 @@
             // btnEditSup
             // 
             this.btnEditSup.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEditSup.Location = new System.Drawing.Point(301, 220);
+            this.btnEditSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEditSup.Location = new System.Drawing.Point(240, 237);
             this.btnEditSup.Name = "btnEditSup";
-            this.btnEditSup.Size = new System.Drawing.Size(75, 39);
+            this.btnEditSup.Size = new System.Drawing.Size(75, 34);
             this.btnEditSup.TabIndex = 9;
             this.btnEditSup.Text = "Save";
             this.btnEditSup.UseVisualStyleBackColor = false;
@@ -666,9 +741,10 @@
             // btnNewSup
             // 
             this.btnNewSup.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewSup.Location = new System.Drawing.Point(210, 220);
+            this.btnNewSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnNewSup.Location = new System.Drawing.Point(111, 237);
             this.btnNewSup.Name = "btnNewSup";
-            this.btnNewSup.Size = new System.Drawing.Size(75, 39);
+            this.btnNewSup.Size = new System.Drawing.Size(81, 34);
             this.btnNewSup.TabIndex = 8;
             this.btnNewSup.Text = "New";
             this.btnNewSup.UseVisualStyleBackColor = false;
@@ -676,7 +752,7 @@
             // 
             // txtSupName
             // 
-            this.txtSupName.Location = new System.Drawing.Point(243, 165);
+            this.txtSupName.Location = new System.Drawing.Point(243, 164);
             this.txtSupName.Name = "txtSupName";
             this.txtSupName.Size = new System.Drawing.Size(369, 29);
             this.txtSupName.TabIndex = 7;
@@ -684,20 +760,22 @@
             // lblSupName
             // 
             this.lblSupName.AutoSize = true;
-            this.lblSupName.Location = new System.Drawing.Point(72, 170);
+            this.lblSupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblSupName.Location = new System.Drawing.Point(84, 171);
             this.lblSupName.Name = "lblSupName";
-            this.lblSupName.Size = new System.Drawing.Size(149, 24);
+            this.lblSupName.Size = new System.Drawing.Size(118, 18);
             this.lblSupName.TabIndex = 5;
             this.lblSupName.Text = "Supplier Name";
             // 
             // lblSupplierId
             // 
             this.lblSupplierId.AutoSize = true;
-            this.lblSupplierId.Location = new System.Drawing.Point(72, 129);
+            this.lblSupplierId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblSupplierId.Location = new System.Drawing.Point(84, 128);
             this.lblSupplierId.Name = "lblSupplierId";
-            this.lblSupplierId.Size = new System.Drawing.Size(111, 24);
+            this.lblSupplierId.Size = new System.Drawing.Size(90, 18);
             this.lblSupplierId.TabIndex = 4;
-            this.lblSupplierId.Text = "Supplier Id";
+            this.lblSupplierId.Text = "Supplier ID";
             // 
             // pictureBox6
             // 
@@ -813,18 +891,6 @@
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
-            // btnNewPackage
-            // 
-            this.btnNewPackage.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNewPackage.Location = new System.Drawing.Point(154, 433);
-            this.btnNewPackage.Name = "btnNewPackage";
-            this.btnNewPackage.Size = new System.Drawing.Size(75, 34);
-            this.btnNewPackage.TabIndex = 28;
-            this.btnNewPackage.Text = "New";
-            this.btnNewPackage.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -932,6 +998,10 @@
         private System.Windows.Forms.Label lblSupName;
         private System.Windows.Forms.Label lblSupplierId;
         private System.Windows.Forms.Button btnNewPackage;
+        private System.Windows.Forms.Button btnNewProdCancel;
+        private System.Windows.Forms.Button btnNewSupCancel;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.Button btnDelSupplier;
     }
 }
 
