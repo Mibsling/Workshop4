@@ -36,8 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnNewPackageCancel = new System.Windows.Forms.Button();
             this.btnNewPackage = new System.Windows.Forms.Button();
-            this.btnClearPackage = new System.Windows.Forms.Button();
             this.btnSavePackage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.lblAgencyCommission = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRemoveProduct = new System.Windows.Forms.Button();
-            this.lboxAddedProducts = new System.Windows.Forms.ListBox();
+            this.lboxPackageProducts = new System.Windows.Forms.ListBox();
             this.lblSuppliers = new System.Windows.Forms.Label();
             this.lblProducts = new System.Windows.Forms.Label();
             this.lblAddedProducts = new System.Windows.Forms.Label();
@@ -186,8 +186,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnNewPackageCancel);
             this.tabPage1.Controls.Add(this.btnNewPackage);
-            this.tabPage1.Controls.Add(this.btnClearPackage);
             this.tabPage1.Controls.Add(this.btnSavePackage);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.txtAgencyCommission);
@@ -215,6 +215,19 @@
             this.tabPage1.Text = "Packages";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnNewPackageCancel
+            // 
+            this.btnNewPackageCancel.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewPackageCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnNewPackageCancel.Location = new System.Drawing.Point(374, 433);
+            this.btnNewPackageCancel.Name = "btnNewPackageCancel";
+            this.btnNewPackageCancel.Size = new System.Drawing.Size(75, 33);
+            this.btnNewPackageCancel.TabIndex = 29;
+            this.btnNewPackageCancel.Text = "Cancel";
+            this.btnNewPackageCancel.UseVisualStyleBackColor = false;
+            this.btnNewPackageCancel.Visible = false;
+            this.btnNewPackageCancel.Click += new System.EventHandler(this.BtnNewPackageCancel_Click);
+            // 
             // btnNewPackage
             // 
             this.btnNewPackage.BackColor = System.Drawing.Color.DarkOrange;
@@ -227,19 +240,6 @@
             this.btnNewPackage.Text = "New";
             this.btnNewPackage.UseVisualStyleBackColor = false;
             this.btnNewPackage.Click += new System.EventHandler(this.BtnNewPackage_Click);
-            // 
-            // btnClearPackage
-            // 
-            this.btnClearPackage.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnClearPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearPackage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClearPackage.Location = new System.Drawing.Point(368, 433);
-            this.btnClearPackage.Name = "btnClearPackage";
-            this.btnClearPackage.Size = new System.Drawing.Size(75, 34);
-            this.btnClearPackage.TabIndex = 26;
-            this.btnClearPackage.Text = "Clear Form";
-            this.btnClearPackage.UseVisualStyleBackColor = false;
-            this.btnClearPackage.Click += new System.EventHandler(this.BtnClearPackage_Click);
             // 
             // btnSavePackage
             // 
@@ -291,7 +291,6 @@
             this.cBoxPackages.Name = "cBoxPackages";
             this.cBoxPackages.Size = new System.Drawing.Size(205, 26);
             this.cBoxPackages.TabIndex = 25;
-            this.cBoxPackages.SelectedIndexChanged += new System.EventHandler(this.CBoxPackages_SelectedIndexChanged);
             // 
             // lblAgencyCommission
             // 
@@ -309,7 +308,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.btnRemoveProduct);
-            this.groupBox1.Controls.Add(this.lboxAddedProducts);
+            this.groupBox1.Controls.Add(this.lboxPackageProducts);
             this.groupBox1.Controls.Add(this.lblSuppliers);
             this.groupBox1.Controls.Add(this.lblProducts);
             this.groupBox1.Controls.Add(this.lblAddedProducts);
@@ -318,9 +317,9 @@
             this.groupBox1.Controls.Add(this.cbProducts);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(39, 263);
+            this.groupBox1.Location = new System.Drawing.Point(22, 266);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(588, 126);
+            this.groupBox1.Size = new System.Drawing.Size(605, 126);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Package Products";
@@ -335,18 +334,18 @@
             this.btnRemoveProduct.UseVisualStyleBackColor = true;
             this.btnRemoveProduct.Click += new System.EventHandler(this.BtnRemoveProduct_Click);
             // 
-            // lboxAddedProducts
+            // lboxPackageProducts
             // 
-            this.lboxAddedProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.lboxAddedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lboxAddedProducts.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lboxAddedProducts.FormattingEnabled = true;
-            this.lboxAddedProducts.ItemHeight = 18;
-            this.lboxAddedProducts.Location = new System.Drawing.Point(313, 37);
-            this.lboxAddedProducts.Name = "lboxAddedProducts";
-            this.lboxAddedProducts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lboxAddedProducts.Size = new System.Drawing.Size(247, 58);
-            this.lboxAddedProducts.TabIndex = 9;
+            this.lboxPackageProducts.BackColor = System.Drawing.SystemColors.Window;
+            this.lboxPackageProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxPackageProducts.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lboxPackageProducts.FormattingEnabled = true;
+            this.lboxPackageProducts.ItemHeight = 18;
+            this.lboxPackageProducts.Location = new System.Drawing.Point(303, 37);
+            this.lboxPackageProducts.Name = "lboxPackageProducts";
+            this.lboxPackageProducts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lboxPackageProducts.Size = new System.Drawing.Size(279, 58);
+            this.lboxPackageProducts.TabIndex = 9;
             // 
             // lblSuppliers
             // 
@@ -369,7 +368,7 @@
             // lblAddedProducts
             // 
             this.lblAddedProducts.AutoSize = true;
-            this.lblAddedProducts.Location = new System.Drawing.Point(313, 21);
+            this.lblAddedProducts.Location = new System.Drawing.Point(303, 21);
             this.lblAddedProducts.Name = "lblAddedProducts";
             this.lblAddedProducts.Size = new System.Drawing.Size(143, 18);
             this.lblAddedProducts.TabIndex = 8;
@@ -488,6 +487,7 @@
             this.txtPkgId.Name = "txtPkgId";
             this.txtPkgId.Size = new System.Drawing.Size(148, 24);
             this.txtPkgId.TabIndex = 21;
+            this.txtPkgId.TextChanged += new System.EventHandler(this.TxtPkgId_TextChanged);
             // 
             // lblPkgName
             // 
@@ -946,13 +946,12 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtAgencyCommission;
-        private System.Windows.Forms.Button btnClearPackage;
         private System.Windows.Forms.ComboBox cBoxPackages;
         private System.Windows.Forms.Button btnSavePackage;
         private System.Windows.Forms.Label lblAgencyCommission;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRemoveProduct;
-        private System.Windows.Forms.ListBox lboxAddedProducts;
+        private System.Windows.Forms.ListBox lboxPackageProducts;
         private System.Windows.Forms.Label lblSuppliers;
         private System.Windows.Forms.Label lblProducts;
         private System.Windows.Forms.Label lblAddedProducts;
@@ -1002,6 +1001,7 @@
         private System.Windows.Forms.Button btnNewSupCancel;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnDelSupplier;
+        private System.Windows.Forms.Button btnNewPackageCancel;
     }
 }
 

@@ -10,6 +10,6 @@ namespace BusinessLayer
     {
         public int PackageId { get; set; }
         public int ProductSupplierId { get; set; }
-
+        public string ProdSupText { get; set; }
     }
 }

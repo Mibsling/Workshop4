@@ -33,7 +33,7 @@ where Packages.PackageId = 1;
              
             
              */
-
+            
             var packages = DataLayer.PackageDB.GetPackages();
             var products = DataLayer.ProductsDB.GetProducts();
             var suppliers = DataLayer.SuppliersDB.GetSuppliers();
@@ -75,35 +75,25 @@ where Packages.PackageId = 1;
             txtBasePrice.Text = "";
             txtPkgDesc.Text = "";
             txtAgencyCommission.Text = "";
-            lboxAddedProducts.Items.Clear();
-            dtpPkgStartDate.ResetText();
-            dtpPkgEndDate.ResetText();
-        }
-
-        private void BtnClearPackage_Click(object sender, EventArgs e)
-        {
-            txtPkgName.Text = "";
-            txtBasePrice.Text = "";
-            txtPkgDesc.Text = "";
-            txtAgencyCommission.Text = "";
-            lboxAddedProducts.Items.Clear();
+            lboxPackageProducts.Items.Clear();
             dtpPkgStartDate.ResetText();
             dtpPkgEndDate.ResetText();
         }
 
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {
-            lboxAddedProducts.Items.Add("test");
+            lboxPackageProducts.Items.Add(cbSuppliers.Text + " - " + cbProducts.Text);
         }
 
         private void BtnRemoveProduct_Click(object sender, EventArgs e)
         {
-            var selectedItems = lboxAddedProducts.SelectedItems;
+            lboxPackageProducts.DataSource = null;
+            var selectedItems = lboxPackageProducts.SelectedItems;
 
-            if (lboxAddedProducts.SelectedIndex != -1)
+            if (lboxPackageProducts.SelectedIndex != -1)
             {
                 for (int i = selectedItems.Count - 1; i >= 0; i--)
-                    lboxAddedProducts.Items.Remove(selectedItems[i]);
+                    lboxPackageProducts.Items.Remove(selectedItems[i]);
             }
         }
 
@@ -132,11 +122,25 @@ where Packages.PackageId = 1;
             {
                 erMsg += "-Agency Commission and Package Base Price must be numerical.\n";
             }
-            
             if (erMsg != "")
             {
                 MessageBox.Show("Please correct the following: \n\n" + erMsg);
             }
+            else
+            {
+                try
+                {
+                    DataLayer.PackageDB.AddPackage(txtPkgName.Text, dtpPkgStartDate.Value.Date.ToString(), dtpPkgEndDate.Value.Date.ToString(), txtPkgDesc.Text, txtBasePrice.Text, txtAgencyCommission.Text);
+                    MessageBox.Show("Package '" + txtPkgName.Text + "' successfully added.");
+                    txtPkgId.Visible = true;
+                    btnNewPackageCancel.Visible = false;
+                }
+                catch
+                {
+
+                }
+            }
+            
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -297,20 +301,33 @@ where Packages.PackageId = 1;
             btnNewSupCancel.Visible = false;
         }
 
-        private void CBoxPackages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //change lBoxAddedProducts based on txtPkgId.Text
-
-
-        }
-
         private void BtnNewPackage_Click(object sender, EventArgs e)
         {
             cBoxPackages.SelectedIndex = -1;
-            txtPkgId.Text = "";
+            txtPkgId.Visible = false;
             txtPkgName.Text = "";
+            txtPkgDesc.Text = "";
+            lboxPackageProducts.Items.Clear();
+            txtBasePrice.Text = "";
+            txtAgencyCommission.Text = "";
+            btnNewPackageCancel.Visible = true;
         }
 
-        
+        private void TxtPkgId_TextChanged(object sender, EventArgs e)
+        {
+            lboxPackageProducts.Items.Clear();
+            var pkgSupProd = DataLayer.Packages_Products_SuppliersDB.GetPackage_Products_Suppliers(Convert.ToInt32(txtPkgId.Text));
+
+            foreach (BusinessLayer.Package_Product_Supplier prod_sup in pkgSupProd)
+            {
+                lboxPackageProducts.Items.Add(prod_sup.ProdSupText);
+            }
+        }
+
+        private void BtnNewPackageCancel_Click(object sender, EventArgs e)
+        {
+            txtPkgId.Visible = true;
+            btnNewPackageCancel.Visible = false;
+        }
     }
 }

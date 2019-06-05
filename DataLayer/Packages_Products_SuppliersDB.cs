@@ -10,25 +10,19 @@ namespace DataLayer
 {
     public static class Packages_Products_SuppliersDB
     {
-        public static List<Package_Product_Supplier> GetPackage_Product_Supplier(int PkgId)
+
+        public static List<Package_Product_Supplier> GetPackage_Products_Suppliers(int PkgId = 1)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             List<Package_Product_Supplier> results = new List<Package_Product_Supplier>();
             try
             {
-
-                /*select s.SupName, p.ProdName from Products p
-join Products_Suppliers ps on ps.ProductId = p.ProductId
-join Suppliers s on ps.SupplierId = s.SupplierId
-join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId
-join Packages on Packages.PackageId = pps.PackageId
-where Packages.PackageId = 1;*/
                 string sql = "select s.SupName, p.ProdName from Products p "+
-"join Products_Suppliers ps on ps.ProductId = p.ProductId "+
-"join Suppliers s on ps.SupplierId = s.SupplierId "+
-"join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId "+
-"join Packages on Packages.PackageId = pps.PackageId "+
-"where Packages.PackageId = ; "+ PkgId;
+                "join Products_Suppliers ps on ps.ProductId = p.ProductId "+
+                "join Suppliers s on ps.SupplierId = s.SupplierId "+
+                "join Packages_Products_Suppliers pps on pps.ProductSupplierId = ps.ProductSupplierId "+
+                "join Packages on Packages.PackageId = pps.PackageId "+
+                "where Packages.PackageId = " + PkgId;
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
@@ -36,9 +30,7 @@ where Packages.PackageId = 1;*/
                 {
                     Package_Product_Supplier s = new Package_Product_Supplier();
 
-                    s.PackageId = Convert.ToInt32(reader["PackageId"]);
-                    s.ProductSupplierId = Convert.ToInt32(reader["PrductSupplierId"]);
-
+                    s.ProdSupText = reader["SupName"] + " - " + reader["ProdName"];
 
                     results.Add(s);
                 }
