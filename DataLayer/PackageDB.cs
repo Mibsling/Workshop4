@@ -79,5 +79,31 @@ namespace DataLayer
                 connection.Close();
             }
         }
+
+        public static void EditPackage(string PkgId, string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommission)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            try
+            {
+                string sql = "UPDATE Packages SET PkgName = @PkgName, PkgStartDate = @PkgStartDate, PkgEndDate= @PkgEndDate, PkgDesc = @PkgDesc, PkgBasePrice = @PkgBasePrice, PkgAgencyCommission = @PkgAgencyCommission where PackageId = @PkgId";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@PkgId", PkgId);
+                command.Parameters.AddWithValue("@PkgName", PkgName);
+                command.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
+                command.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+                command.Parameters.AddWithValue("@PkgDesc", PkgDesc);
+                command.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
+                command.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

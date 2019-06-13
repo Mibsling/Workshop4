@@ -130,10 +130,34 @@ where Packages.PackageId = 1;
             {
                 try
                 {
-                    DataLayer.PackageDB.AddPackage(txtPkgName.Text, dtpPkgStartDate.Value.Date.ToString(), dtpPkgEndDate.Value.Date.ToString(), txtPkgDesc.Text, txtBasePrice.Text, txtAgencyCommission.Text);
-                    MessageBox.Show("Package '" + txtPkgName.Text + "' successfully added.");
+                    if (txtPkgId.Visible == false)
+                    {
+                        DataLayer.PackageDB.AddPackage(txtPkgName.Text, dtpPkgStartDate.Value.Date.ToString(), dtpPkgEndDate.Value.Date.ToString(), txtPkgDesc.Text, txtBasePrice.Text, txtAgencyCommission.Text);
+                        MessageBox.Show("Package '" + txtPkgName.Text + "' successfully added.");
+                    }
+                    else
+                    {
+                        DataLayer.PackageDB.EditPackage(txtPkgId.Text, txtPkgName.Text, dtpPkgStartDate.Value.Date.ToString(), dtpPkgEndDate.Value.Date.ToString(), txtPkgDesc.Text, txtBasePrice.Text, txtAgencyCommission.Text);
+                        MessageBox.Show("Package '" + txtPkgName.Text + "' successfully edited.");
+                    }
                     txtPkgId.Visible = true;
                     btnNewPackageCancel.Visible = false;
+                    var packages = DataLayer.PackageDB.GetPackages();
+                    cBoxPackages.DataSource = packages;
+                    txtPkgId.DataBindings.RemoveAt(0);
+                    txtPkgId.DataBindings.Add("Text", packages, "PackageId");
+                    txtPkgName.DataBindings.RemoveAt(0);
+                    txtPkgName.DataBindings.Add("Text", packages, "PkgName");
+                    txtPkgDesc.DataBindings.RemoveAt(0);
+                    txtPkgDesc.DataBindings.Add("Text", packages, "PkgDesc");
+                    dtpPkgStartDate.DataBindings.RemoveAt(0);
+                    dtpPkgStartDate.DataBindings.Add("Value", packages, "PkgStartDate");
+                    dtpPkgEndDate.DataBindings.RemoveAt(0);
+                    dtpPkgEndDate.DataBindings.Add("Value", packages, "PkgEndDate");
+                    txtBasePrice.DataBindings.RemoveAt(0);
+                    txtBasePrice.DataBindings.Add("Text", packages, "PkgBasePrice");
+                    txtAgencyCommission.DataBindings.RemoveAt(0);
+                    txtAgencyCommission.DataBindings.Add("Text", packages, "PkgAgencyCommission");
                 }
                 catch
                 {

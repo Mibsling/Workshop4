@@ -12,8 +12,8 @@ namespace DataLayer
         public static SqlConnection GetConnection()
         {
             SqlConnection connection = new SqlConnection();
-            //string ConnectionString = "Data Source=softdev; Initial Catalog=TravelExperts; Integrated Security=true;";
-            string ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=TravelExperts;Integrated Security=True";
+            string ConnectionString = "Data Source=softdev; Initial Catalog=TravelExperts; Integrated Security=true;";
+            //string ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=TravelExperts;Integrated Security=True";
             connection.ConnectionString = ConnectionString;
             connection.Open();
 
