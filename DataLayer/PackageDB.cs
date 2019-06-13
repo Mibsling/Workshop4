@@ -105,5 +105,77 @@ namespace DataLayer
                 connection.Close();
             }
         }
+
+        public static void AddProductSupplier(string SupplierName, string ProductName)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string prodId;
+            try
+            {
+                string sql = "select ProductId from products where ProdName = @ProdName";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+
+                {
+                    prodId = reader["ProductId"].ToString();
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            try
+            {
+                string sql = "select ProductId from products where ProdName = @ProdName";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+
+                {
+                    prodId = reader["ProductId"].ToString();
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+
+            //SqlConnection connection = TravelExpertsDB.GetConnection();
+            //try
+            //{
+            //    string sql = "select ProductId from products where ProdName = @ProdName";
+            //    string sql2 = "INSERT INTO Products_Suppliers (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+
+            //    SqlCommand command = new SqlCommand(sql, connection);
+            //    command.Parameters.AddWithValue("@PkgName", ProductName);
+            //    command.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
+
+            //    command.ExecuteNonQuery();
+            //}
+            //catch
+            //{
+
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            //            select* from Products_Suppliers ps
+            //join Products p on ps.ProductId = p.ProductId
+            //join Suppliers s on ps.SupplierId = s.SupplierId
+            //where p.ProdName = 'Travel Insurance' and s.SupName = 'ALIOTOURS'
+        }
     }
 }

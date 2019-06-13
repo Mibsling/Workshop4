@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Workshop4
 {
@@ -19,7 +20,7 @@ namespace Workshop4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
             /*The agents need to add/edit travel packages.  This function must allow the user to enter data for the package,
              * and select from a product list to add products to the package.The application will also require simple add/edit
              * access for maintaining the product, suppliers, and product_suppliers data.
@@ -33,7 +34,7 @@ where Packages.PackageId = 1;
              
             
              */
-            
+
             var packages = DataLayer.PackageDB.GetPackages();
             var products = DataLayer.ProductsDB.GetProducts();
             var suppliers = DataLayer.SuppliersDB.GetSuppliers();
@@ -89,7 +90,7 @@ where Packages.PackageId = 1;
         {
             lboxPackageProducts.DataSource = null;
             var selectedItems = lboxPackageProducts.SelectedItems;
-
+            
             if (lboxPackageProducts.SelectedIndex != -1)
             {
                 for (int i = selectedItems.Count - 1; i >= 0; i--)
@@ -164,7 +165,6 @@ where Packages.PackageId = 1;
 
                 }
             }
-            
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -187,7 +187,15 @@ where Packages.PackageId = 1;
                 try
                 {
                     DataLayer.ProductsDB.AddProduct(txtProdName.Text);
-                    MessageBox.Show("Product '"+txtProdName.Text+"' successfully added.");
+                    var packageProducts = lboxPackageProducts.Items;
+                    List<string> names = new List<string>();
+                    for (int i = packageProducts.Count - 1; i >= 0; i--)
+                    {
+                        names = packageProducts[i].ToString().Split('-').ToList();
+                        names.Reverse();
+                        Debug.WriteLine(packageProducts.ToString());
+                    }
+                    MessageBox.Show("Product '" + txtProdName.Text + "' successfully added.");
                 }
                 catch
                 {
@@ -199,7 +207,7 @@ where Packages.PackageId = 1;
                 try
                 {
                     DataLayer.ProductsDB.EditProduct(txtProdName.Text, BoxProdID.Text);
-                    MessageBox.Show("Product '"+txtProdName.Text+"' successfully edited.");
+                    MessageBox.Show("Product '" + txtProdName.Text + "' successfully edited.");
                 }
                 catch
                 {
